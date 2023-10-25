@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CAPSTONE_PROJECT.Models.DomandeIscrizione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CognomeAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Allergie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bilinguismo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assicurazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFPapa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFMamma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Isee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DomandaAccolta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CognomeAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Allergie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bilinguismo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assicurazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFPapa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFMamma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DomandaAccolta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdDomanda }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdDomanda }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdDomanda })
+        </td>
+    </tr>
+}
+
+</table>
