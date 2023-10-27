@@ -53,7 +53,6 @@ namespace CAPSTONE_PROJECT.Controllers
             {
                 try
                 {
-                    //var domande = db.DomandeIscrizione.ToList();
                     var cercaCF = db.DomandeIscrizione.Where(x => x.CFAlunno == CFAlunno).FirstOrDefault();
                     if (cercaCF == null)
                     {
@@ -94,12 +93,24 @@ namespace CAPSTONE_PROJECT.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta")] DomandeIscrizione domandeIscrizione)
+        public ActionResult Edit([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta")] DomandeIscrizione domandeIscrizione, bool DomandaAccolta, int IdDomanda)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(domandeIscrizione).State = EntityState.Modified;
                 db.SaveChanges();
+
+                if (DomandaAccolta)
+                {
+                    AggiungiAlunno(IdDomanda);
+                }else if (DomandaAccolta == false)
+                {
+                    AggiungiAlunnoListaAttesa(IdDomanda);
+                }else
+                {
+                    return View();
+                }
+
                 return RedirectToAction("Index");
             }
             return View(domandeIscrizione);
@@ -138,6 +149,25 @@ namespace CAPSTONE_PROJECT.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AggiungiAlunno(int IdDomanda)
+        {
+            Alunni alunno = new Alunni();
+            alunno.FKDomandaIscrizione = IdDomanda;
+            db.Alunni.Add(alunno);
+            db.SaveChanges();
+            return View();
+        }
+
+        public ActionResult AggiungiAlunnoListaAttesa(int IdDomanda)
+        {
+
+            AlunniListaAttesa alunno = new AlunniListaAttesa();
+            alunno.FKDomandaIscrizione = IdDomanda;
+            db.AlunniListaAttesa.Add(alunno);
+            db.SaveChanges();
+            return View();
         }
     }
 }

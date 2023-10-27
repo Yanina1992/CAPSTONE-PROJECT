@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    @*Intestazione*@
+
+    <div class="d-flex flex-column align-items-center">
+        <h1>Benvenuti all'Istituto Comprensivo Macondo</h1>
+        <img src="~/Content/Images/scuola/ecole-etangs2.jpg" style="max-width: 100vw; max-height: 100vh" />
+    </div>
+
+
+    <div class="container text-light p-0" id="wrap-for-cols">
+        @*Corpo*@
+        <div class="row">
+            <h2>La nostra scuola</h2>
+            <p>
+                L'Istituto Compresivo Macondo è una scuola secondaria di primo grado, che accoglie i bambini appena usciti dalle elementari, e saluta con orgoglio ragazzi pronti per iniziare al meglio il liceo.
+                Oltre alle classiche materie curriculari, i nostri alunni hanno la possibilità di partecipare a progetti di approfondimento in aree che vanno dal ragionamento logico matematico a quello linguistico.
+                Situata in pieno centro e facilmente raggiungibile con i mezzi pubblici, la nostra scuola apre le porte a bambini e ragazzi che provengono da situazioni sociali e culturali fortemente eterogenei, ed è questo il nostro punto forte.
+            </p>
+
+            <div class="col col-8">
+
+                @*Carosello*@
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/Content/Images/scuola/tenbosch3.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/Images/scuola/201335201-spazio-interno-della-biblioteca-pubblica-offuscata-scaffali-sfocati-con-libri-tono-vintage.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                @*Iscrizioni*@
+                <div class="card text-center">
+                    <div class="card-header">
+                        Sono aperte le iscrizioni!
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        @Html.ActionLink("Modulo iscrizione", "Create", "DomandeIscrizione", new { area = "" }, new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        2 days ago
+                    </div>
+                </div>
+
+
+
+            </div>
+            @*Aside*@
+            <div class="col col-4">
+
+                <div class="card" style="">
+                    <div class="card-body">
+                        <h5 class="card-title">Mensa</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+
+                    <div class="card" style="">
+                        <div class="card-body">
+                            <h5 class="card-title">Calendario</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="">
+                        <div class="card-body">
+                            <h5 class="card-title">Avvisi</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="">
+                        <div class="card-body">
+                            <h5 class="card-title">Contatti</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+     
+    </div>
+
