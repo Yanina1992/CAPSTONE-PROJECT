@@ -42,6 +42,7 @@ namespace CAPSTONE_PROJECT.Models
 
         public bool? Assicurazione { get; set; }
 
+
         [StringLength(16)]
         public string CFPapa { get; set; }
 
@@ -53,6 +54,10 @@ namespace CAPSTONE_PROJECT.Models
         public decimal? Isee { get; set; }
 
         public bool? DomandaAccolta { get; set; }
+
+        public virtual bool? Mensa { get; set; }
+
+        public virtual bool? TrasportoScolastico { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Alunni> Alunni { get; set; }

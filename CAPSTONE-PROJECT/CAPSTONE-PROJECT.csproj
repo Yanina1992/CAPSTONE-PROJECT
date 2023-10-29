@@ -164,8 +164,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\DomandeIscrizioneController.cs" />
+    <Compile Include="Controllers\FamiglieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstitutoController.cs" />
+    <Compile Include="Controllers\PagamentiController.cs" />
+    <Compile Include="Controllers\StudentiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
     <Compile Include="Migrations\202310251027143_Alunni.cs" />
     <Compile Include="Migrations\202310251027143_Alunni.designer.cs">
       <DependentUpon>202310251027143_Alunni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310271623098_DomandaIscr.cs" />
+    <Compile Include="Migrations\202310271623098_DomandaIscr.designer.cs">
+      <DependentUpon>202310271623098_DomandaIscr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alunni.cs" />
@@ -269,6 +276,15 @@
     <Content Include="Views\DomandeIscrizione\Edit.cshtml" />
     <Content Include="Views\DomandeIscrizione\Index.cshtml" />
     <Content Include="Views\Istituto\Index.cshtml" />
+    <Content Include="Views\Pagamenti\Create.cshtml" />
+    <Content Include="Views\Pagamenti\Delete.cshtml" />
+    <Content Include="Views\Pagamenti\Details.cshtml" />
+    <Content Include="Views\Pagamenti\Edit.cshtml" />
+    <Content Include="Views\Pagamenti\Index.cshtml" />
+    <Content Include="Views\Famiglie\Index.cshtml" />
+    <Content Include="Views\Famiglie\TrovaPagamenti.cshtml" />
+    <Content Include="Views\Studenti\Index.cshtml" />
+    <Content Include="Views\Studenti\PrimoSoccorso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -350,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310251027143_Alunni.resx">
       <DependentUpon>202310251027143_Alunni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310271623098_DomandaIscr.resx">
+      <DependentUpon>202310271623098_DomandaIscr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

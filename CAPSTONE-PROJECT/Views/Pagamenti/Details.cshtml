@@ -1,0 +1,58 @@
+﻿@model CAPSTONE_PROJECT.Models.Pagamenti
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pagamenti</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mensa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mensa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrasportoScolastico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrasportoScolastico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assicurazione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assicurazione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bilinguismo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bilinguismo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Totale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Totale)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPagamento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

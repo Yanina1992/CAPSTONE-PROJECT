@@ -47,7 +47,7 @@ namespace CAPSTONE_PROJECT.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta")] DomandeIscrizione domandeIscrizione, string CFAlunno)
+        public ActionResult Create([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta,Mensa,TrasportoScolastico")] DomandeIscrizione domandeIscrizione, string CFAlunno)
         {
             if (ModelState.IsValid)
             {
@@ -93,14 +93,14 @@ namespace CAPSTONE_PROJECT.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta")] DomandeIscrizione domandeIscrizione, bool DomandaAccolta, int IdDomanda)
+        public ActionResult Edit([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta,Mensa,TrasportoScolastico")] DomandeIscrizione domandeIscrizione, bool? DomandaAccolta, int IdDomanda)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(domandeIscrizione).State = EntityState.Modified;
                 db.SaveChanges();
 
-                if (DomandaAccolta)
+                if (DomandaAccolta==true)
                 {
                     AggiungiAlunno(IdDomanda);
                 }else if (DomandaAccolta == false)
