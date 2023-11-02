@@ -48,12 +48,6 @@ namespace CAPSTONE_PROJECT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdPagamento,Mensa,TrasportoScolastico,Assicurazione,Bilinguismo,Totale")]Pagamenti pagamenti)
         {
-            //var alunni = db.Alunni.Select(m=>new {m.FKDomandaIscrizione, m.IdAlunno} ).ToList();
-            //foreach (var item in alunni)
-            //{
-            //    Pagamenti pagamento = new Pagamenti();
-
-            //}
 
             if (ModelState.IsValid)
             {
@@ -129,6 +123,17 @@ namespace CAPSTONE_PROJECT.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult CalcoloPagamenti()
+        {
+            var alunni = db.Alunni.Select(m => new { m.FKDomandaIscrizione, m.IdAlunno }).ToList();
+            foreach (var item in alunni)
+            {
+                Pagamenti pagamento = new Pagamenti();
+
+            }
+            return View();
         }
     }
 }

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CAPSTONE_PROJECT.Models.DomandeIscrizione>
+
+@{
+    ViewBag.Title = "GestioneTerzeTC";
+}
+
+<h2>GestioneTerzeTC</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CognomeAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Allergie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bilinguismo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assicurazione)
+        </th>
+        <th style="display: none">
+            @Html.DisplayNameFor(model => model.CFPapa)
+        </th>
+        <th style="display: none">
+            @Html.DisplayNameFor(model => model.CFMamma)
+        </th>
+        <th style="display: none">
+            @Html.DisplayNameFor(model => model.Isee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DomandaAccolta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mensa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrasportoScolastico)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CognomeAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Allergie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bilinguismo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assicurazione)
+        </td>
+        <td style="display: none">
+            @Html.DisplayFor(modelItem => item.CFPapa)
+        </td>
+        <td style="display: none">
+            @Html.DisplayFor(modelItem => item.CFMamma)
+        </td>
+        <td style="display: none">
+            @Html.DisplayFor(modelItem => item.Isee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DomandaAccolta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mensa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrasportoScolastico)
+        </td>
+    </tr>
+}
+
+</table>

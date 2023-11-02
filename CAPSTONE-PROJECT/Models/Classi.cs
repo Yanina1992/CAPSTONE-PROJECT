@@ -25,6 +25,9 @@ namespace CAPSTONE_PROJECT.Models
         [StringLength(1)]
         public string Sezione { get; set; }
 
+        [NotMapped]
+        public bool ConfermaClasse { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Alunni> Alunni { get; set; }
     }

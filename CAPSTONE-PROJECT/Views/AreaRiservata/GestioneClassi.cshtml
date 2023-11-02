@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "GestioneClassi";
+}
+
+<h2>GestioneClassi</h2>
+
+@Html.ActionLink("Classi prime tempo pieno", "GestionePrimeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Classi prime tempo corto", "GestionePrimeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Classi seconde tempo pieno", "GestioneSecondeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Classi seconde tempo corto", "GestioneSecondeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Classi terze tempo pieno", "GestioneTerzeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Classi terze tempo corto", "GestioneTerzeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+<div>
+    @Html.ActionLink("Salva classi", "SalvaClassi", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+</div>

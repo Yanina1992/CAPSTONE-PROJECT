@@ -58,7 +58,10 @@ namespace CAPSTONE_PROJECT.Controllers
                     {
                         db.DomandeIscrizione.Add(domandeIscrizione);
                         db.SaveChanges();
-                        return RedirectToAction("Index");
+
+                        int id = domandeIscrizione.IdDomanda;
+                        TempData["id"]= id;
+                        return RedirectToAction("ParentsDetails");
                     }
                     else
                     {
@@ -73,6 +76,22 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(domandeIscrizione);
         }
 
+        public ActionResult ParentsDetails()
+        {
+            var id = Convert.ToInt32(TempData["id"]);
+            
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DomandeIscrizione domandeIscrizione = db.DomandeIscrizione.Find(id);
+            if (domandeIscrizione == null)
+            {
+                return HttpNotFound();
+            }
+            return View(domandeIscrizione);
+        }
         // GET: DomandeIscrizione/Edit/5
         public ActionResult Edit(int? id)
         {

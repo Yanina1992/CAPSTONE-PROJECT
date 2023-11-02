@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AreaRiservataController.cs" />
     <Compile Include="Controllers\DomandeIscrizioneController.cs" />
     <Compile Include="Controllers\FamiglieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -285,6 +286,17 @@
     <Content Include="Views\Famiglie\TrovaPagamenti.cshtml" />
     <Content Include="Views\Studenti\Index.cshtml" />
     <Content Include="Views\Studenti\PrimoSoccorso.cshtml" />
+    <Content Include="Views\DomandeIscrizione\_DomandaIscrDetails.cshtml" />
+    <Content Include="Views\DomandeIscrizione\ParentsDetails.cshtml" />
+    <Content Include="Views\AreaRiservata\Index.cshtml" />
+    <Content Include="Views\AreaRiservata\GestioneClassi.cshtml" />
+    <Content Include="Views\AreaRiservata\GestionePrimeTP.cshtml" />
+    <Content Include="Views\AreaRiservata\GestionePrimeTC.cshtml" />
+    <Content Include="Views\AreaRiservata\GestioneSecondeTP.cshtml" />
+    <Content Include="Views\AreaRiservata\GestioneSecondeTC.cshtml" />
+    <Content Include="Views\AreaRiservata\GestioneTerzeTP.cshtml" />
+    <Content Include="Views\AreaRiservata\GestioneTerzeTC.cshtml" />
+    <Content Include="Views\AreaRiservata\SalvaClassi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

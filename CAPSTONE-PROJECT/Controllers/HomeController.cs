@@ -8,6 +8,7 @@ namespace CAPSTONE_PROJECT.Controllers
 {
     public class HomeController : Controller
     {
+        private Models.Context db = new Models.Context();
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";

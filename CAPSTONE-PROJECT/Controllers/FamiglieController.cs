@@ -8,6 +8,7 @@ namespace CAPSTONE_PROJECT.Controllers
 {
     public class FamiglieController : Controller
     {
+        private Models.Context db = new Models.Context();
         // GET: Famiglie
         public ActionResult Index()
         {
