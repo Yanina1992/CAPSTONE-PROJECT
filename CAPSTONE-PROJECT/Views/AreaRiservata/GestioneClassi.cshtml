@@ -11,6 +11,57 @@
 @Html.ActionLink("Classi seconde tempo corto", "GestioneSecondeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
 @Html.ActionLink("Classi terze tempo pieno", "GestioneTerzeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
 @Html.ActionLink("Classi terze tempo corto", "GestioneTerzeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-<div>
-    @Html.ActionLink("Salva classi", "SalvaClassi", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-</div>
+@*<div>
+        @Html.ActionLink("Visualizza classi generate", "SalvaClassi", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>*@
+
+<a href="#" id="salvaClassi">Visualizza classi</a>
+<ul id="classiSalvate"></ul>
+@*<div id="divForButton">*@
+    <button id="save" style="display:none">Salva classi</button>
+@*</div>*@
+
+<p>@ViewBag.Message</p>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            
+
+            $("#salvaClassi").click(function () {
+                $("#classiSalvate").empty();
+                $.ajax({
+                    method: "GET",
+                    url: "SalvaClassi",
+                    success: function (lista) {
+                        $.each(lista, function (i, v) {
+                            var licurrent = ` <li>` + v.Anno + ` ` + v.Sezione + ` </li>`;
+                            $("#classiSalvate").append(licurrent);
+                        })
+                        //var newButton = `<button id="save">Salva classi</button>`
+                        //$("#divForButton").append(newButton);
+                        $("#save").show();
+                    }
+                })
+            })
+
+            $("#save").click(function () {
+                //var inputVal = $("#cf").val()
+                //console.log(inputVal)
+                //if (inputVal !== "") {
+                /*alert();*/
+                    $.ajax({
+                        method: 'GET',
+                        url: "SalvaC",
+/*                        data: { cf: inputVal },*/
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    })
+            })
+
+        })
+
+    </script>
+}

@@ -7,6 +7,8 @@
 
 <input class="form-control me-2" id="cf" type="text" placeholder="Inserisci il tuo codice fiscale">
 <button class="btn btn-primary" id="cfButton">Trova pagamenti</button>
+<p id="response"></p>
+
 
 @section Scripts {
     <script>
@@ -14,42 +16,20 @@
             $("#cfButton").click(function () {
                 var inputVal = $("#cf").val()
                 console.log(inputVal)
-                if (inputVal !== "")
-                {
-                $.ajax({
-                    method: 'GET',
-                    url: "Pagamenti/Details",
-                    data: { cf: inputVal },
-                    success: function (data) {
-                        console.log(data)
-                        if (data.status == true) {
-                            $(window.location).attr("href", "./Pagamenti/Details?id=" + data.id)
-
+                if (inputVal !== "") {
+                    $.ajax({
+                        method: 'GET',
+                        url: "Pagamento",
+                        data: { cf: inputVal },
+                        success: function (data) {
+                            console.log(data)
                         }
-                        else
-                        {
-                            var newP = `<p class="text-danger">Non sono stati trovati pagamenti disponibili</p>`
-                            if ($('#response').children().length == 0) {
-                                $('#response').append(newP)
-                                console.log($('#response'))
-                            }
-                        }
-                    }
-
-                })
+                    })
                 }
+
             })
 
 
-
-
         })
-
-
-
     </script>
-
-
-
-
 }

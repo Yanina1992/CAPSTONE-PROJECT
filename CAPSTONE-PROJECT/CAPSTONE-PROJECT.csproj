@@ -296,7 +296,6 @@
     <Content Include="Views\AreaRiservata\GestioneSecondeTC.cshtml" />
     <Content Include="Views\AreaRiservata\GestioneTerzeTP.cshtml" />
     <Content Include="Views\AreaRiservata\GestioneTerzeTC.cshtml" />
-    <Content Include="Views\AreaRiservata\SalvaClassi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
