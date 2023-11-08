@@ -1,4 +1,5 @@
 ﻿using CAPSTONE_PROJECT.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,13 +27,10 @@ namespace CAPSTONE_PROJECT.Controllers
         List<DomandeIscrizione> alunniTerzeInEccesso = new List<DomandeIscrizione>();
 
         List<Classi> listaClassi = new List<Classi>();
-
-        // GET: AreaRiservata
         public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult GestioneClassi()
         {
             foreach (var item in db.DomandeIscrizione)
@@ -106,16 +104,14 @@ namespace CAPSTONE_PROJECT.Controllers
                 };
 
             }
+
             return View();
         }
-
-
         public ActionResult GestionePrimeTP()
         {
             GestioneClassi();
             return View(classiPrimeTP.ToList());
         }
-
         public ActionResult GestionePrimeTC()
         {
             GestioneClassi();
@@ -126,25 +122,21 @@ namespace CAPSTONE_PROJECT.Controllers
             GestioneClassi();
             return View(classiSecondeTP.ToList());
         }
-
         public ActionResult GestioneSecondeTC()
         {
             GestioneClassi();
             return View(classiSecondeTC.ToList());
         }
-
         public ActionResult GestioneTerzeTP()
         {
             GestioneClassi();
             return View(classiTerzeTP.ToList());
         }
-
         public ActionResult GestioneTerzeTC()
         {
             GestioneClassi();
             return View(classiTerzeTC.ToList());
         }
-
         public JsonResult SalvaClassi()
         {
             GestioneClassi();
@@ -205,28 +197,363 @@ namespace CAPSTONE_PROJECT.Controllers
 
             return Json(listaClassi, JsonRequestBehavior.AllowGet);
         }
-
-        public JsonResult SalvaC()
+        public JsonResult SalvaC(string annoSc)
         {
             GestioneClassi();
             SalvaClassi();
-            foreach (var item in listaClassi)
-            {
-                if (ModelState.IsValid)
+
+            //Save classes
+            var listaAnnoScDb = db.Classi.Select(m => new { m.AnnoScolastico }).ToList();
+            var anno = annoSc;
+            TempData["anno"] = anno;
+
+            foreach (var item2 in listaAnnoScDb)
                 {
-                    try
-                    {
-                    db.Classi.Add(item);
-                    db.SaveChanges();
-                    }
-                    catch (Exception ex) 
-                    {
+                if (item2.AnnoScolastico != annoSc)
+                {
+                    anno = annoSc;
+                }
+                else if (item2.AnnoScolastico == annoSc)
+                {
+                    anno = "";
+                }
+             }
+
+            if (anno != "")
+            {
+               foreach (var item in listaClassi)
+               {
+                   if (ModelState.IsValid)
+                   {
+                      item.AnnoScolastico = anno;
+                      try
+                      {
+                        db.Classi.Add(item);
+                        db.SaveChanges();
+                        item.ConfermaClasse = true;
+                      }
+                      catch (Exception ex)
+                      {
                         ViewBag.Error = ex.Message;
+                      }
+
+                   }
+                   else
+                   {
+                   Exception exception = new Exception();
+                   }
+               }
+            }
+
+            ////Save students
+            //foreach (var item in classiPrimeTP)
+            //{
+            //    item.DomandaAccolta = true;
+            //    var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione}).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+            //        if (fkDom == null)
+            //        {
+            //           Alunni alunno = new Alunni();
+            //           alunno.FKDomandaIscrizione = item.IdDomanda;
+            //        //riprendi da qui
+            //           var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A");
+            //           var findId = findClasse.Select(m => new { m.IdClasse });
+            //           alunno.FKClasse = Convert.ToInt32(findId);
+
+            //              if (ModelState.IsValid)
+            //              {
+            //                 try
+            //                 {
+            //                 db.Alunni.Add(alunno);
+            //                 db.SaveChanges();
+            //                 }
+            //                 catch (Exception ex)
+            //                 {
+            //                 ViewBag.Error = ex.Message;
+            //                 }
+            //              }
+            //        }
+            //}
+
+            //foreach (var item in classiPrimeTC)
+            //{
+            //    if (item.Alunni == null)
+            //    {
+            //        Alunni alunno = new Alunni();
+            //        alunno.FKDomandaIscrizione = item.IdDomanda;
+            //        var findId = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B").Select(m => new { m.IdClasse });
+            //        alunno.FKClasse = Convert.ToInt32(findId);
+
+            //        if (ModelState.IsValid)
+            //        {
+            //            try
+            //            {
+            //                db.Alunni.Add(alunno);
+            //                db.SaveChanges();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                ViewBag.Error = ex.Message;
+            //            }
+            //        }
+            //    }
+            //}
+
+            //foreach (var item in classiSecondeTP)
+            //{
+            //    if (item.Alunni == null)
+            //    {
+            //        Alunni alunno = new Alunni();
+            //        alunno.FKDomandaIscrizione = item.IdDomanda;
+            //        var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A").Select(m => new { m.IdClasse });
+            //        alunno.FKClasse = Convert.ToInt32(findId);
+
+            //        if (ModelState.IsValid)
+            //        {
+            //            try
+            //            {
+            //                db.Alunni.Add(alunno);
+            //                db.SaveChanges();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                ViewBag.Error = ex.Message;
+            //            }
+            //        }
+            //    }
+            //}
+
+            //foreach (var item in classiSecondeTC)
+            //{
+            //    if (item.Alunni == null)
+            //    {
+            //        Alunni alunno = new Alunni();
+            //        alunno.FKDomandaIscrizione = item.IdDomanda;
+            //        var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B").Select(m => new { m.IdClasse });
+            //        alunno.FKClasse = Convert.ToInt32(findId);
+
+            //        if (ModelState.IsValid)
+            //        {
+            //            try
+            //            {
+            //                db.Alunni.Add(alunno);
+            //                db.SaveChanges();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                ViewBag.Error = ex.Message;
+            //            }
+            //        }
+            //    }
+            //}
+
+            //foreach (var item in classiTerzeTP)
+            //{
+            //    if (item.Alunni == null)
+            //    {
+            //        Alunni alunno = new Alunni();
+            //        alunno.FKDomandaIscrizione = item.IdDomanda;
+            //        var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A").Select(m => new { m.IdClasse });
+            //        alunno.FKClasse = Convert.ToInt32(findId);
+
+            //        if (ModelState.IsValid)
+            //        {
+            //            try
+            //            {
+            //                db.Alunni.Add(alunno);
+            //                db.SaveChanges();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                ViewBag.Error = ex.Message;
+            //            }
+            //        }
+            //    }
+            //}
+
+            //foreach (var item in classiPrimeTC)
+            //{
+            //    if (item.Alunni == null)
+            //    {
+            //        Alunni alunno = new Alunni();
+            //        alunno.FKDomandaIscrizione = item.IdDomanda;
+            //        var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B").Select(m => new { m.IdClasse });
+            //        alunno.FKClasse = Convert.ToInt32(findId);
+
+            //        if (ModelState.IsValid)
+            //        {
+            //            try
+            //            {
+            //                db.Alunni.Add(alunno);
+            //                db.SaveChanges();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                ViewBag.Error = ex.Message;
+            //            }
+            //        }
+            //    }
+            //}
+            SalvaStudenti();
+
+            return Json(Response, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult SalvaStudenti()
+        {
+            //Save students
+            foreach (var item in classiPrimeTP)
+            {
+                item.DomandaAccolta = true;
+                var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione }).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+                if (fkDom == null)
+                {
+                    Alunni alunno = new Alunni();
+                    alunno.FKDomandaIscrizione = item.IdDomanda;
+                    //riprendi da qui
+                    //var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A" && m.AnnoScolastico == TempData["anno"].ToString()).FirstOrDefault();
+                    var findClasse = db.Classi.Where(x => x.Anno == 1.ToString()).FirstOrDefault();
+                    //var findId = findClasse.Select(m => new { m.IdClasse }).FirstOrDefault();
+                    //alunno.FKClasse = Convert.ToInt32(findId);
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            db.Alunni.Add(alunno);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Error = ex.Message;
+                        }
                     }
                 }
             }
 
-            return Json(Response, JsonRequestBehavior.AllowGet);
+            foreach (var item in classiPrimeTC)
+            {
+                if (item.Alunni == null)
+                {
+                    Alunni alunno = new Alunni();
+                    alunno.FKDomandaIscrizione = item.IdDomanda;
+                    var findId = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B").Select(m => new { m.IdClasse });
+                    alunno.FKClasse = Convert.ToInt32(findId);
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            db.Alunni.Add(alunno);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Error = ex.Message;
+                        }
+                    }
+                }
+            }
+
+            foreach (var item in classiSecondeTP)
+            {
+                if (item.Alunni == null)
+                {
+                    Alunni alunno = new Alunni();
+                    alunno.FKDomandaIscrizione = item.IdDomanda;
+                    var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A").Select(m => new { m.IdClasse });
+                    alunno.FKClasse = Convert.ToInt32(findId);
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            db.Alunni.Add(alunno);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Error = ex.Message;
+                        }
+                    }
+                }
+            }
+
+            foreach (var item in classiSecondeTC)
+            {
+                if (item.Alunni == null)
+                {
+                    Alunni alunno = new Alunni();
+                    alunno.FKDomandaIscrizione = item.IdDomanda;
+                    var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B").Select(m => new { m.IdClasse });
+                    alunno.FKClasse = Convert.ToInt32(findId);
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            db.Alunni.Add(alunno);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Error = ex.Message;
+                        }
+                    }
+                }
+            }
+
+            foreach (var item in classiTerzeTP)
+            {
+                if (item.Alunni == null)
+                {
+                    Alunni alunno = new Alunni();
+                    alunno.FKDomandaIscrizione = item.IdDomanda;
+                    var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A").Select(m => new { m.IdClasse });
+                    alunno.FKClasse = Convert.ToInt32(findId);
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            db.Alunni.Add(alunno);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Error = ex.Message;
+                        }
+                    }
+                }
+            }
+
+            foreach (var item in classiPrimeTC)
+            {
+                if (item.Alunni == null)
+                {
+                    Alunni alunno = new Alunni();
+                    alunno.FKDomandaIscrizione = item.IdDomanda;
+                    var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B").Select(m => new { m.IdClasse });
+                    alunno.FKClasse = Convert.ToInt32(findId);
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            db.Alunni.Add(alunno);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Error = ex.Message;
+                        }
+                    }
+                }
+            }
+
+
+            return View();
         }
     }
 }            

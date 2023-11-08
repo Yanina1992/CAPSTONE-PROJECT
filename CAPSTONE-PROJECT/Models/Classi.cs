@@ -25,6 +25,9 @@ namespace CAPSTONE_PROJECT.Models
         [StringLength(1)]
         public string Sezione { get; set; }
 
+        [StringLength(10)]
+        public string AnnoScolastico { get; set; }
+
         [NotMapped]
         public bool ConfermaClasse { get; set; }
 

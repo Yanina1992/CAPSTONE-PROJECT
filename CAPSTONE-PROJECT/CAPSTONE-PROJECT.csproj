@@ -164,6 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AreaRiservataController.cs" />
+    <Compile Include="Controllers\ClassiController.cs" />
     <Compile Include="Controllers\DomandeIscrizioneController.cs" />
     <Compile Include="Controllers\FamiglieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -184,6 +185,14 @@
     <Compile Include="Migrations\202310271623098_DomandaIscr.cs" />
     <Compile Include="Migrations\202310271623098_DomandaIscr.designer.cs">
       <DependentUpon>202310271623098_DomandaIscr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311071122039_Classi.cs" />
+    <Compile Include="Migrations\202311071122039_Classi.designer.cs">
+      <DependentUpon>202311071122039_Classi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311071209367_ClassiAnnoScRequired.cs" />
+    <Compile Include="Migrations\202311071209367_ClassiAnnoScRequired.designer.cs">
+      <DependentUpon>202311071209367_ClassiAnnoScRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alunni.cs" />
@@ -296,6 +305,11 @@
     <Content Include="Views\AreaRiservata\GestioneSecondeTC.cshtml" />
     <Content Include="Views\AreaRiservata\GestioneTerzeTP.cshtml" />
     <Content Include="Views\AreaRiservata\GestioneTerzeTC.cshtml" />
+    <Content Include="Views\Classi\Create.cshtml" />
+    <Content Include="Views\Classi\Delete.cshtml" />
+    <Content Include="Views\Classi\Details.cshtml" />
+    <Content Include="Views\Classi\Edit.cshtml" />
+    <Content Include="Views\Classi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -380,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310271623098_DomandaIscr.resx">
       <DependentUpon>202310271623098_DomandaIscr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311071122039_Classi.resx">
+      <DependentUpon>202311071122039_Classi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311071209367_ClassiAnnoScRequired.resx">
+      <DependentUpon>202311071209367_ClassiAnnoScRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

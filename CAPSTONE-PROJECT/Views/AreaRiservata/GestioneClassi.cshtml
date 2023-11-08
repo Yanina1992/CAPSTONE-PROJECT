@@ -11,23 +11,24 @@
 @Html.ActionLink("Classi seconde tempo corto", "GestioneSecondeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
 @Html.ActionLink("Classi terze tempo pieno", "GestioneTerzeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
 @Html.ActionLink("Classi terze tempo corto", "GestioneTerzeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-@*<div>
-        @Html.ActionLink("Visualizza classi generate", "SalvaClassi", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-    </div>*@
+
 
 <a href="#" id="salvaClassi">Visualizza classi</a>
 <ul id="classiSalvate"></ul>
-@*<div id="divForButton">*@
-    <button id="save" style="display:none">Salva classi</button>
-@*</div>*@
 
-<p>@ViewBag.Message</p>
+<label id="label" style="display:none">Inserisci anno scolastico</label>
+<input id="year" style="display:none" placeholder="2020-2021" />
+<button id="save" style="display:none">Salva classi</button>
+
+<div id="response"></div>
+
+@*<p id="classiGenerate" style="display:none">Classi generate correttamente</p>*@
+
+
 
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-
-            
 
             $("#salvaClassi").click(function () {
                 $("#classiSalvate").empty();
@@ -39,28 +40,50 @@
                             var licurrent = ` <li>` + v.Anno + ` ` + v.Sezione + ` </li>`;
                             $("#classiSalvate").append(licurrent);
                         })
-                        //var newButton = `<button id="save">Salva classi</button>`
-                        //$("#divForButton").append(newButton);
+                        $("#label").show();
+                        $("#year").show();
                         $("#save").show();
                     }
                 })
             })
 
+            //$("#save").click(function () {
+            //    $.ajax({
+            //        method: 'GET',
+            //        url: "SalvaC",
+            //        success: function (data) {
+            //            console.log(data)
+            //            //$(window.location).attr("href", "../Classi/Index");
+            //            //$("#classiGenerate").show();
+            //        }
+
+            //    })
+            //})
+
             $("#save").click(function () {
-                //var inputVal = $("#cf").val()
-                //console.log(inputVal)
-                //if (inputVal !== "") {
-                /*alert();*/
+                var inputVal = $("#year").val()
+                console.log(inputVal)
+                if (inputVal !== "")
+                {
                     $.ajax({
-                        method: 'GET',
+                        method: "GET",
                         url: "SalvaC",
-/*                        data: { cf: inputVal },*/
+                        data: { annoSc: inputVal },
                         success: function (data) {
                             console.log(data)
+                            if (data.status == true) {
+                                $(window.location).attr("href", "../Classi/Index")
+                            } 
                         }
                     })
+                }
+                else {
+                var newP = "<p class='text-danger'>Inserire l'anno scolastico</p>"
+                                if($('#response').children().length == 0) {
+                                $('#response').append(newP)
+                                }
+                }
             })
-
         })
 
     </script>
