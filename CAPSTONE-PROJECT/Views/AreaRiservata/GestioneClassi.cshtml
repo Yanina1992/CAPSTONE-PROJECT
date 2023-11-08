@@ -22,8 +22,11 @@
 
 <div id="response"></div>
 
-@*<p id="classiGenerate" style="display:none">Classi generate correttamente</p>*@
+<p id="classiGenerate" style="display:none">Classi generate correttamente</p>
+<p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
+<button id="saveStudents" style="display:none">Salva studenti</button>
 
+<div id="responseSaveStudents"></div>
 
 
 @section Scripts {
@@ -47,42 +50,46 @@
                 })
             })
 
-            //$("#save").click(function () {
-            //    $.ajax({
-            //        method: 'GET',
-            //        url: "SalvaC",
-            //        success: function (data) {
-            //            console.log(data)
-            //            //$(window.location).attr("href", "../Classi/Index");
-            //            //$("#classiGenerate").show();
-            //        }
-
-            //    })
-            //})
-
             $("#save").click(function () {
                 var inputVal = $("#year").val()
                 console.log(inputVal)
                 if (inputVal !== "")
                 {
                     $.ajax({
-                        method: "GET",
                         url: "SalvaC",
+                        type: "POST",
                         data: { annoSc: inputVal },
-                        success: function (data) {
-                            console.log(data)
-                            if (data.status == true) {
-                                $(window.location).attr("href", "../Classi/Index")
-                            } 
+                        success: function (response) {
+                            console.log(response)
+                                $('#response').append("")
+                                $("#classiGenerate").show();
+                                $("#pSave").show();
+                                $("#saveStudents").show();
                         }
                     })
                 }
-                else {
-                var newP = "<p class='text-danger'>Inserire l'anno scolastico</p>"
-                                if($('#response').children().length == 0) {
-                                $('#response').append(newP)
-                                }
+                else
+                {
+                     var newP = "<p class='text-danger'>Inserire l'anno scolastico</p>"
+                    if ($('#response').children().length == 0)
+                    {
+                    $('#response').append(newP)
+                    }
                 }
+            })
+
+            $("#saveStudents").click(function () {
+                $.ajax({
+                    url: "SalvaStudenti",
+                    type: "POST",
+                    success: function (response) {
+                        console.log(response)
+                        var newPar = "<p class='text-success'>Alunni salvati correttamente</p>"
+                        if ($('#responseSaveStudents').children().length == 0) {
+                            $('#responseSaveStudents').append(newPar)
+                        }
+                    }
+                })
             })
         })
 

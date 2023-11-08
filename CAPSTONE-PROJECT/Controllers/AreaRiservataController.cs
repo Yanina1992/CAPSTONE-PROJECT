@@ -197,6 +197,8 @@ namespace CAPSTONE_PROJECT.Controllers
 
             return Json(listaClassi, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
         public JsonResult SalvaC(string annoSc)
         {
             GestioneClassi();
@@ -245,163 +247,14 @@ namespace CAPSTONE_PROJECT.Controllers
                }
             }
 
-            ////Save students
-            //foreach (var item in classiPrimeTP)
-            //{
-            //    item.DomandaAccolta = true;
-            //    var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione}).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
-
-            //        if (fkDom == null)
-            //        {
-            //           Alunni alunno = new Alunni();
-            //           alunno.FKDomandaIscrizione = item.IdDomanda;
-            //        //riprendi da qui
-            //           var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A");
-            //           var findId = findClasse.Select(m => new { m.IdClasse });
-            //           alunno.FKClasse = Convert.ToInt32(findId);
-
-            //              if (ModelState.IsValid)
-            //              {
-            //                 try
-            //                 {
-            //                 db.Alunni.Add(alunno);
-            //                 db.SaveChanges();
-            //                 }
-            //                 catch (Exception ex)
-            //                 {
-            //                 ViewBag.Error = ex.Message;
-            //                 }
-            //              }
-            //        }
-            //}
-
-            //foreach (var item in classiPrimeTC)
-            //{
-            //    if (item.Alunni == null)
-            //    {
-            //        Alunni alunno = new Alunni();
-            //        alunno.FKDomandaIscrizione = item.IdDomanda;
-            //        var findId = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B").Select(m => new { m.IdClasse });
-            //        alunno.FKClasse = Convert.ToInt32(findId);
-
-            //        if (ModelState.IsValid)
-            //        {
-            //            try
-            //            {
-            //                db.Alunni.Add(alunno);
-            //                db.SaveChanges();
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                ViewBag.Error = ex.Message;
-            //            }
-            //        }
-            //    }
-            //}
-
-            //foreach (var item in classiSecondeTP)
-            //{
-            //    if (item.Alunni == null)
-            //    {
-            //        Alunni alunno = new Alunni();
-            //        alunno.FKDomandaIscrizione = item.IdDomanda;
-            //        var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A").Select(m => new { m.IdClasse });
-            //        alunno.FKClasse = Convert.ToInt32(findId);
-
-            //        if (ModelState.IsValid)
-            //        {
-            //            try
-            //            {
-            //                db.Alunni.Add(alunno);
-            //                db.SaveChanges();
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                ViewBag.Error = ex.Message;
-            //            }
-            //        }
-            //    }
-            //}
-
-            //foreach (var item in classiSecondeTC)
-            //{
-            //    if (item.Alunni == null)
-            //    {
-            //        Alunni alunno = new Alunni();
-            //        alunno.FKDomandaIscrizione = item.IdDomanda;
-            //        var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B").Select(m => new { m.IdClasse });
-            //        alunno.FKClasse = Convert.ToInt32(findId);
-
-            //        if (ModelState.IsValid)
-            //        {
-            //            try
-            //            {
-            //                db.Alunni.Add(alunno);
-            //                db.SaveChanges();
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                ViewBag.Error = ex.Message;
-            //            }
-            //        }
-            //    }
-            //}
-
-            //foreach (var item in classiTerzeTP)
-            //{
-            //    if (item.Alunni == null)
-            //    {
-            //        Alunni alunno = new Alunni();
-            //        alunno.FKDomandaIscrizione = item.IdDomanda;
-            //        var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A").Select(m => new { m.IdClasse });
-            //        alunno.FKClasse = Convert.ToInt32(findId);
-
-            //        if (ModelState.IsValid)
-            //        {
-            //            try
-            //            {
-            //                db.Alunni.Add(alunno);
-            //                db.SaveChanges();
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                ViewBag.Error = ex.Message;
-            //            }
-            //        }
-            //    }
-            //}
-
-            //foreach (var item in classiPrimeTC)
-            //{
-            //    if (item.Alunni == null)
-            //    {
-            //        Alunni alunno = new Alunni();
-            //        alunno.FKDomandaIscrizione = item.IdDomanda;
-            //        var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B").Select(m => new { m.IdClasse });
-            //        alunno.FKClasse = Convert.ToInt32(findId);
-
-            //        if (ModelState.IsValid)
-            //        {
-            //            try
-            //            {
-            //                db.Alunni.Add(alunno);
-            //                db.SaveChanges();
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                ViewBag.Error = ex.Message;
-            //            }
-            //        }
-            //    }
-            //}
-            SalvaStudenti();
-
-            return Json(Response, JsonRequestBehavior.AllowGet);
+            return Json("success");
         }
 
-        public ActionResult SalvaStudenti()
+        [HttpPost]
+        public JsonResult SalvaStudenti()
         {
-            //Save students
+            GestioneClassi();
+            SalvaClassi();
             foreach (var item in classiPrimeTP)
             {
                 item.DomandaAccolta = true;
@@ -411,11 +264,11 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    //riprendi da qui
-                    //var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A" && m.AnnoScolastico == TempData["anno"].ToString()).FirstOrDefault();
-                    var findClasse = db.Classi.Where(x => x.Anno == 1.ToString()).FirstOrDefault();
-                    //var findId = findClasse.Select(m => new { m.IdClasse }).FirstOrDefault();
-                    //alunno.FKClasse = Convert.ToInt32(findId);
+                    var anno = TempData["anno"].ToString();
+                    var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
+                    findClasse.ConfermaClasse = true;
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
                     if (ModelState.IsValid)
                     {
@@ -430,16 +283,26 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
+                else
+                {
+                    //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                }
             }
 
             foreach (var item in classiPrimeTC)
             {
-                if (item.Alunni == null)
+                item.DomandaAccolta = true;
+                var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione }).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+                if (fkDom == null)
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var findId = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B").Select(m => new { m.IdClasse });
-                    alunno.FKClasse = Convert.ToInt32(findId);
+                    var anno = TempData["anno"].ToString();
+                    var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
+                    findClasse.ConfermaClasse = true;
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
                     if (ModelState.IsValid)
                     {
@@ -458,12 +321,18 @@ namespace CAPSTONE_PROJECT.Controllers
 
             foreach (var item in classiSecondeTP)
             {
-                if (item.Alunni == null)
+                item.DomandaAccolta = true;
+                var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione }).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+                if (fkDom == null)
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A").Select(m => new { m.IdClasse });
-                    alunno.FKClasse = Convert.ToInt32(findId);
+                    var anno = TempData["anno"].ToString();
+                    var findClasse = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
+                    findClasse.ConfermaClasse = true;
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
                     if (ModelState.IsValid)
                     {
@@ -482,12 +351,19 @@ namespace CAPSTONE_PROJECT.Controllers
 
             foreach (var item in classiSecondeTC)
             {
-                if (item.Alunni == null)
+                item.DomandaAccolta = true;
+                var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione }).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+                if (fkDom == null)
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var findId = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B").Select(m => new { m.IdClasse });
-                    alunno.FKClasse = Convert.ToInt32(findId);
+                    //riprendi da qui
+                    var anno = TempData["anno"].ToString();
+                    var findClasse = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
+                    findClasse.ConfermaClasse = true;
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
                     if (ModelState.IsValid)
                     {
@@ -506,12 +382,18 @@ namespace CAPSTONE_PROJECT.Controllers
 
             foreach (var item in classiTerzeTP)
             {
-                if (item.Alunni == null)
+                item.DomandaAccolta = true;
+                var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione }).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+                if (fkDom == null)
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A").Select(m => new { m.IdClasse });
-                    alunno.FKClasse = Convert.ToInt32(findId);
+                    var anno = TempData["anno"].ToString();
+                    var findClasse = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
+                    findClasse.ConfermaClasse = true;
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
                     if (ModelState.IsValid)
                     {
@@ -528,14 +410,20 @@ namespace CAPSTONE_PROJECT.Controllers
                 }
             }
 
-            foreach (var item in classiPrimeTC)
+            foreach (var item in classiTerzeTC)
             {
-                if (item.Alunni == null)
+                item.DomandaAccolta = true;
+                var fkDom = db.Alunni.Select(m => new { m.FKDomandaIscrizione }).Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+
+                if (fkDom == null)
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var findId = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B").Select(m => new { m.IdClasse });
-                    alunno.FKClasse = Convert.ToInt32(findId);
+                    var anno = TempData["anno"].ToString();
+                    var findClasse = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
+                    findClasse.ConfermaClasse = true;
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
                     if (ModelState.IsValid)
                     {
@@ -553,7 +441,7 @@ namespace CAPSTONE_PROJECT.Controllers
             }
 
 
-            return View();
+            return Json("success");
         }
     }
 }            
