@@ -17,9 +17,7 @@ namespace CAPSTONE_PROJECT.Models
 
         [Key]
         public int IdRuolo { get; set; }
-
         public bool? Admin { get; set; }
-
         public bool? Genitore { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

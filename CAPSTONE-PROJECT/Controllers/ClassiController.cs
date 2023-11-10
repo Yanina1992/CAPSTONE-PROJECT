@@ -10,6 +10,7 @@ using CAPSTONE_PROJECT.Models;
 
 namespace CAPSTONE_PROJECT.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ClassiController : Controller
     {
         private Context db = new Context();

@@ -1,7 +1,5 @@
 ﻿/* Set padding to keep content from hitting the edges */
-/*body {*/
-   /* background-image: url('images/sfondo.png');*/
-/*}*/
+
 
 /*navbar*/
 .navbar {
@@ -32,4 +30,9 @@ textarea {
 }
 
 
+/*@media (max-width: 576px){
+    #upper-image{
+        display: none !important;
+    }
+}*/
 

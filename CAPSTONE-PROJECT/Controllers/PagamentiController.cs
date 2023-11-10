@@ -10,6 +10,7 @@ using CAPSTONE_PROJECT.Models;
 
 namespace CAPSTONE_PROJECT.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PagamentiController : Controller
     {
         private Context db = new Context();
@@ -125,15 +126,16 @@ namespace CAPSTONE_PROJECT.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult CalcoloPagamenti()
-        {
-            var alunni = db.Alunni.Select(m => new { m.FKDomandaIscrizione, m.IdAlunno }).ToList();
-            foreach (var item in alunni)
-            {
-                Pagamenti pagamento = new Pagamenti();
+        //Questo metodo non ha senso: ho calcolo qui i pagamenti, oppure bo, non ha ragione di esistere, perché mi crea per ogni alunno un pagamento vuoto, e tra l'altro non lo chiamo mai...
+        //public ActionResult CalcoloPagamenti()
+        //{
+        //    var alunni = db.Alunni.Select(m => new { m.FKDomandaIscrizione, m.IdAlunno }).ToList();
+        //    foreach (var item in alunni)
+        //    {
+        //        Pagamenti pagamento = new Pagamenti();
 
-            }
-            return View();
-        }
+        //    }
+        //    return View();
+        //}
     }
 }

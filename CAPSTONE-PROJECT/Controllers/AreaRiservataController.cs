@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CAPSTONE_PROJECT.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AreaRiservataController : Controller
     {
         private Models.Context db = new Models.Context();
@@ -204,7 +205,6 @@ namespace CAPSTONE_PROJECT.Controllers
             GestioneClassi();
             SalvaClassi();
 
-            //Save classes
             var listaAnnoScDb = db.Classi.Select(m => new { m.AnnoScolastico }).ToList();
             var anno = annoSc;
             TempData["anno"] = anno;
@@ -246,7 +246,10 @@ namespace CAPSTONE_PROJECT.Controllers
                    }
                }
             }
-
+            else
+            {
+                TempData["ClassiGiaGenerate"] = "Sono già state generate delle classi per l'anno scolastico inserito.";
+            }
             return Json("success");
         }
 
@@ -255,6 +258,9 @@ namespace CAPSTONE_PROJECT.Controllers
         {
             GestioneClassi();
             SalvaClassi();
+
+            var anno = TempData["anno"].ToString();
+
             foreach (var item in classiPrimeTP)
             {
                 item.DomandaAccolta = true;
@@ -264,7 +270,6 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var anno = TempData["anno"].ToString();
                     var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
                     findClasse.ConfermaClasse = true;
                     var findIdClasse = findClasse.IdClasse;
@@ -283,9 +288,19 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
-                else
+                else if (fkDom != null)
                 {
                     //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                    var alunno = db.Alunni.Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+                    var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
+
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
                 }
             }
 
@@ -298,7 +313,6 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var anno = TempData["anno"].ToString();
                     var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
                     findClasse.ConfermaClasse = true;
                     var findIdClasse = findClasse.IdClasse;
@@ -317,6 +331,20 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
+                else if (fkDom != null)
+                {
+                    //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                    var alunno = db.Alunni.Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+                    var findClasse = db.Classi.Where(m => m.Anno == "1" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
+
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
             }
 
             foreach (var item in classiSecondeTP)
@@ -328,7 +356,6 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var anno = TempData["anno"].ToString();
                     var findClasse = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
                     findClasse.ConfermaClasse = true;
                     var findIdClasse = findClasse.IdClasse;
@@ -347,6 +374,20 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
+                else if (fkDom != null)
+                {
+                    //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                    var alunno = db.Alunni.Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+                    var findClasse = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
+
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
             }
 
             foreach (var item in classiSecondeTC)
@@ -358,8 +399,6 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    //riprendi da qui
-                    var anno = TempData["anno"].ToString();
                     var findClasse = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
                     findClasse.ConfermaClasse = true;
                     var findIdClasse = findClasse.IdClasse;
@@ -378,6 +417,20 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
+                else if (fkDom != null)
+                {
+                    //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                    var alunno = db.Alunni.Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+                    var findClasse = db.Classi.Where(m => m.Anno == "2" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
+
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
             }
 
             foreach (var item in classiTerzeTP)
@@ -389,7 +442,6 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var anno = TempData["anno"].ToString();
                     var findClasse = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
                     findClasse.ConfermaClasse = true;
                     var findIdClasse = findClasse.IdClasse;
@@ -408,6 +460,20 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
+                else if (fkDom != null)
+                {
+                    //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                    var alunno = db.Alunni.Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+                    var findClasse = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "A" && m.AnnoScolastico == anno).FirstOrDefault();
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
+
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
             }
 
             foreach (var item in classiTerzeTC)
@@ -419,7 +485,6 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     Alunni alunno = new Alunni();
                     alunno.FKDomandaIscrizione = item.IdDomanda;
-                    var anno = TempData["anno"].ToString();
                     var findClasse = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
                     findClasse.ConfermaClasse = true;
                     var findIdClasse = findClasse.IdClasse;
@@ -438,8 +503,21 @@ namespace CAPSTONE_PROJECT.Controllers
                         }
                     }
                 }
-            }
+                else if (fkDom != null)
+                {
+                    //fk è diverso da null e quindi mi seleziono l'alunno e ne modifico la classe
+                    var alunno = db.Alunni.Where(m => m.FKDomandaIscrizione == item.IdDomanda).FirstOrDefault();
+                    var findClasse = db.Classi.Where(m => m.Anno == "3" && m.Sezione == "B" && m.AnnoScolastico == anno).FirstOrDefault();
+                    var findIdClasse = findClasse.IdClasse;
+                    alunno.FKClasse = findIdClasse;
 
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+            }
 
             return Json("success");
         }

@@ -169,6 +169,7 @@
     <Compile Include="Controllers\FamiglieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstitutoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagamentiController.cs" />
     <Compile Include="Controllers\StudentiController.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,9 +191,9 @@
     <Compile Include="Migrations\202311071122039_Classi.designer.cs">
       <DependentUpon>202311071122039_Classi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311071209367_ClassiAnnoScRequired.cs" />
-    <Compile Include="Migrations\202311071209367_ClassiAnnoScRequired.designer.cs">
-      <DependentUpon>202311071209367_ClassiAnnoScRequired.cs</DependentUpon>
+    <Compile Include="Migrations\202311091251575_AllowNullRuoli.cs" />
+    <Compile Include="Migrations\202311091251575_AllowNullRuoli.designer.cs">
+      <DependentUpon>202311091251575_AllowNullRuoli.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alunni.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\Pagamenti.cs" />
     <Compile Include="Models\PagamentiEffettuati.cs" />
     <Compile Include="Models\Ruoli.cs" />
+    <Compile Include="Models\SiteRole.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -226,6 +228,9 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Images\Lavagna benvenuti.png" />
+    <Content Include="Content\Images\Ragazzi copertina mod.jpg" />
+    <Content Include="Content\Images\Ragazzi copertina mod2.jpg" />
+    <Content Include="Content\Images\Ragazzi copertina.jpg" />
     <Content Include="Content\Images\scuola901.jpeg" />
     <Content Include="Content\Images\scuola\201335201-spazio-interno-della-biblioteca-pubblica-offuscata-scaffali-sfocati-con-libri-tono-vintage.jpg" />
     <Content Include="Content\Images\scuola\b218ba9e38ff5eef37eea54db8d1150b.jpg" />
@@ -310,6 +315,7 @@
     <Content Include="Views\Classi\Details.cshtml" />
     <Content Include="Views\Classi\Edit.cshtml" />
     <Content Include="Views\Classi\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,8 +404,8 @@
     <EmbeddedResource Include="Migrations\202311071122039_Classi.resx">
       <DependentUpon>202311071122039_Classi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311071209367_ClassiAnnoScRequired.resx">
-      <DependentUpon>202311071209367_ClassiAnnoScRequired.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311091251575_AllowNullRuoli.resx">
+      <DependentUpon>202311091251575_AllowNullRuoli.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

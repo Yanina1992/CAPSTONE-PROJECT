@@ -7,13 +7,13 @@ namespace CAPSTONE_PROJECT.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ClassiAnnoScRequired : IMigrationMetadata
+    public sealed partial class AllowNullRuoli : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ClassiAnnoScRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AllowNullRuoli));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311071209367_ClassiAnnoScRequired"; }
+            get { return "202311091251575_AllowNullRuoli"; }
         }
         
         string IMigrationMetadata.Source

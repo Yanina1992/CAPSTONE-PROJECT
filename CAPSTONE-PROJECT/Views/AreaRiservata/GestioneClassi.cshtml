@@ -22,9 +22,18 @@
 
 <div id="response"></div>
 
-<p id="classiGenerate" style="display:none">Classi generate correttamente</p>
-<p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
-<button id="saveStudents" style="display:none">Salva studenti</button>
+@{ 
+    var myTemp = TempData["ClassiGenerate"];
+}
+
+    @*Riprendi da qui
+        <p id="classiGenerate" style="display:none">@myTemp</p>*@
+
+    <p id="classiGenerate" style="display:none">Classi generate correttamente</p>
+    <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
+    <button id="saveStudents" style="display:none">Salva studenti</button>
+}
+
 
 <div id="responseSaveStudents"></div>
 
@@ -53,27 +62,28 @@
             $("#save").click(function () {
                 var inputVal = $("#year").val()
                 console.log(inputVal)
-                if (inputVal !== "")
-                {
+                if (inputVal !== "") {
                     $.ajax({
                         url: "SalvaC",
                         type: "POST",
                         data: { annoSc: inputVal },
                         success: function (response) {
                             console.log(response)
-                                $('#response').append("")
-                                $("#classiGenerate").show();
-                                $("#pSave").show();
-                                $("#saveStudents").show();
+                            $('#response').append("")
+                            //Riprendi da qui
+                            //if (myTemp.val == 2) {
+                            //    $("classiGenerate").val = myTemp;
+                            //}
+                            $("#classiGenerate").show();
+                            $("#pSave").show();
+                            $("#saveStudents").show();
                         }
                     })
                 }
-                else
-                {
-                     var newP = "<p class='text-danger'>Inserire l'anno scolastico</p>"
-                    if ($('#response').children().length == 0)
-                    {
-                    $('#response').append(newP)
+                else {
+                    var newP = "<p class='text-danger'>Inserire l'anno scolastico</p>"
+                    if ($('#response').children().length == 0) {
+                        $('#response').append(newP)
                     }
                 }
             })

@@ -23,6 +23,7 @@ namespace CAPSTONE_PROJECT.Controllers
             return View();
         }
 
+        [HttpPost]
         public JsonResult Pagamento(string cf)
         {
             DomandeIscrizione domanda = db.DomandeIscrizione.FirstOrDefault(e => e.CFPapa == cf || e.CFMamma == cf);
@@ -141,7 +142,7 @@ namespace CAPSTONE_PROJECT.Controllers
             {
                 ViewBag.Error = ex.Message;
             }
-            return Json(Response, JsonRequestBehavior.AllowGet);
+            return Json("success");
         }
     }
 }
