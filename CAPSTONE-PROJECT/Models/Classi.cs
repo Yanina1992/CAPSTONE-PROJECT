@@ -16,6 +16,7 @@ namespace CAPSTONE_PROJECT.Models
         }
 
         [Key]
+        [Display(Name = "Classe n.")]
         public int IdClasse { get; set; }
 
         [Required]
@@ -26,9 +27,11 @@ namespace CAPSTONE_PROJECT.Models
         public string Sezione { get; set; }
 
         [StringLength(10)]
+        [Display(Name = "Anno scolastico")]
         public string AnnoScolastico { get; set; }
 
         [NotMapped]
+        [Display(Name = "Classe confermata")]
         public bool ConfermaClasse { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,0 +1,151 @@
+﻿/*background-color: #00928E; >> verde
+color: rgb(255 255 255 / 60%); >> bianco per scritte sul verde ( rgba(255, 255, 255, 0.75)>> hover)
+
+    var(--bs-card-cap-bg) >> grigetto card
+    #4950577d >> grigio scuro sfumatura background paragrafo (istituto)
+*/
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+﻿ /* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 100% !important;
+}
+
+h1 {
+    font-weight: 700;
+    text-shadow: 5px 5px 5px #4950577d;
+}
+h2 {
+    font-weight: 500;
+    text-shadow: 5px 5px 5px #4950577d;
+}
+h3 {
+    font-weight: 500;
+    text-shadow: 5px 5px 5px #4950577d;
+}
+p{
+    font-weight:400;
+    color: black;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar a{
+    color: rgb(255 255 255 / 60%);
+}
+
+    .navbar a:hover {
+        color: rgba(255, 255, 255, 0.75)
+    }
+
+#sticky-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar-toggler {
+    color: rgb(255 255 255 / 60%);
+}
+
+.card {
+    background-color: var(--bs-card-cap-bg) !important;
+    border: 0 !important;
+    box-shadow: 10px 10px 10px grey;
+}
+
+footer {
+    background-color: #00928E;
+    width: 100%;
+    color: rgb(255 255 255 / 60%);
+}
+
+    footer p {
+        margin: 0;
+       color: rgb(255 255 255 / 60%);
+    }
+
+    footer a {
+        color: rgb(255 255 255 / 60%);
+    }
+        footer a:hover {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+.btn {
+    background-color: #00928E;
+    color: rgb(255 255 255 / 60%);
+}
+    .btn:hover {
+        background-color: #00928E;
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+a, .nav-link {
+    color: #00928E;
+    text-decoration:none;
+}
+    a:hover, .nav-link:hover {
+        color: #00928E;
+        font-weight: 500;
+    }
+       /* Istituto*/
+
+.white-titles {
+    text-shadow: 10px 10px 10px black;
+}
+
+#school-image {
+    background-image: url('../../Content/Images/scuola/ecole-etangs2.jpg');
+    height: 70vh;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    text-shadow: 10px 10px 10px black;
+}
+    #school-image p {
+        color: white;
+        text-shadow: 10px 10px 10px black;
+        font-weight: 500;
+        background-color: #4950577d;
+    }
+
+#carouselExample {
+    box-shadow: 10px 10px 10px grey;
+}
+
+/*Form*/
+
+.forms{
+    margin: 2em;
+}
+.my-form {
+    background-color: rgba(0, 0, 0, 0.03);
+    box-shadow: 10px 10px 10px grey;
+    padding: 3em;
+    margin-bottom: 3em;
+}
+
+.control-label {
+    width: 20vw;
+}
+
+.form-group{
+    margin: 1em;
+}
+
+.form-group span{
+    color: red;
+}

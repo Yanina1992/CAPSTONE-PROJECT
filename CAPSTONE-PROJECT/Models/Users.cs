@@ -18,6 +18,7 @@ namespace CAPSTONE_PROJECT.Models
         [StringLength(50)]
         public string Password { get; set; }
 
+        [Display(Name = "Sei un amministratore?")]
         public int FKRuolo { get; set; }
 
         public virtual Ruoli Ruoli { get; set; }

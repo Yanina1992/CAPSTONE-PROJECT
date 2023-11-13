@@ -1,4 +1,5 @@
 ﻿
+
 @{
     ViewBag.Title = "Index";
 }
@@ -6,26 +7,25 @@
 
     @*Intestazione*@
 
-    <div class="d-flex flex-column align-items-center">
-        <h1>Benvenuti all'Istituto Comprensivo Macondo</h1>
-        <img src="~/Content/Images/scuola/ecole-etangs2.jpg" style="max-width: 100vw; max-height: 100vh" />
-    </div>
+<div class="d-flex flex-column align-items-center justify-content-center mb-4" id="school-image">
+        <h1 class="white-titles">Benvenuti all'Istituto Comprensivo Macondo</h1>
+        <h2 class="white-titles">La nostra scuola</h2>
+        <p class="m-5">
+            L'Istituto Compresivo Macondo è una scuola secondaria di primo grado, che accoglie i bambini appena usciti dalle elementari, e saluta con orgoglio ragazzi pronti per iniziare al meglio il liceo.
+            Oltre alle classiche materie curriculari, i nostri alunni hanno la possibilità di partecipare a progetti di approfondimento in aree che vanno dal ragionamento logico matematico a quello linguistico.
+            Situata in pieno centro e facilmente raggiungibile con i mezzi pubblici, la nostra scuola apre le porte a bambini e ragazzi che provengono da situazioni sociali e culturali fortemente eterogenei, ed è questo il nostro punto forte.
+        </p>
+</div>
 
 
-    <div class="container text-light p-0" id="wrap-for-cols">
+    <div class="container p-0" id="wrap-for-cols">
         @*Corpo*@
         <div class="row">
-            <h2>La nostra scuola</h2>
-            <p>
-                L'Istituto Compresivo Macondo è una scuola secondaria di primo grado, che accoglie i bambini appena usciti dalle elementari, e saluta con orgoglio ragazzi pronti per iniziare al meglio il liceo.
-                Oltre alle classiche materie curriculari, i nostri alunni hanno la possibilità di partecipare a progetti di approfondimento in aree che vanno dal ragionamento logico matematico a quello linguistico.
-                Situata in pieno centro e facilmente raggiungibile con i mezzi pubblici, la nostra scuola apre le porte a bambini e ragazzi che provengono da situazioni sociali e culturali fortemente eterogenei, ed è questo il nostro punto forte.
-            </p>
 
             <div class="col col-8">
 
                 @*Carosello*@
-                <div id="carouselExample" class="carousel slide">
+                <div id="carouselExample" class="carousel slide mb-4">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="~/Content/Images/scuola/tenbosch3.png" class="d-block w-100" alt="...">
@@ -47,11 +47,13 @@
                 @*Iscrizioni*@
                 <div class="card text-center">
                     <div class="card-header">
-                        Sono aperte le iscrizioni!
+                        
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">Sono aperte le iscrizioni!</h5>
+                        <p class="card-text">Le iscrizioni per il nuovo anno scolastico saranno aperte fino al 31/01/2024. Le classi saranno composte accoglieranno un numero
+                        massimo di studenti, per consentire uno scorrevole ed efficace svolgimento delle lezioni. Le domande saranno accolte in base all'ordine d'invio.
+                        </p>
                         @Html.ActionLink("Modulo iscrizione", "Create", "DomandeIscrizione", new { area = "" }, new { @class = "btn btn-primary" })
                     </div>
                     <div class="card-footer text-body-secondary">
@@ -65,49 +67,59 @@
             @*Aside*@
             <div class="col col-4">
 
-                <div class="card" style="">
+                <div class="card mb-2" style="">
                     <div class="card-body">
                         <h5 class="card-title">Mensa</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Menù invernale</h6>
+                        <p class="card-text text-truncate">
+                            I menù delle mense scolastiche dell'IC Giacomo Matteotti  per le scuole dell'infanzia, primarie e secondarie di 1° grado sono articolati in quattro 
+                            settimane, con distinzione del menù  invernale (da novembre a marzo) ed estivo (da aprile a giugno).
+                            La rotazione delle settimane segue il calendario indipendentemente dalla sospensione delle attività didattiche.
+                            Dal 6 novembre entrerà in vigore il menù invernale per tutti i plessi..
+                        </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+
+                <div class="card mb-2" style="">
+                    <div class="card-body">
+                        <h5 class="card-title">Calendario</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Back to school!</h6>
+                        <p class="card-text text-truncate">
+                            In applicazione del calendario scolastico regionale e della delibera degli Organi Collegiali, si comunica, che l’inizio delle attività didattiche 
+                            è previsto per il giorno 14 settembre 2023.
+                            Gli orari verranno comunicati in tempi utili..
+                        </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+
+                <div class="card mb-2" style="">
+                    <div class="card-body">
+                        <h5 class="card-title">Avvisi</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
                     </div>
-
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <h5 class="card-title">Calendario</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <h5 class="card-title">Avvisi</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-
-                    <div class="card" style="">
-                        <div class="card-body">
-                            <h5 class="card-title">Contatti</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="card mb-2" style="">
+                    <div class="card-body">
+                        <h5 class="card-title">Contatti</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+
             </div>
+        </div>
 
         </div>
      
-    </div>
+  
 

@@ -17,12 +17,14 @@ namespace CAPSTONE_PROJECT.Models
         }
 
         [Key]
+        [Display(Name = "Pagamento n.")]
         public int IdPagamento { get; set; }
 
         [Column(TypeName = "money")]
         public decimal? Mensa { get; set; }
 
         [Column(TypeName = "money")]
+        [Display(Name = "Trasporto scolastico")]
         public decimal? TrasportoScolastico { get; set; }
 
         [Column(TypeName = "money")]
