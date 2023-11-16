@@ -1,7 +1,6 @@
 ﻿@model CAPSTONE_PROJECT.Models.DomandeIscrizione
 
 <div>
-    <h4>DomandeIscrizione</h4>
     <hr />
     <dl class="dl-horizontal form-control">
         <dt>
@@ -41,23 +40,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Allergie)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Bilinguismo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bilinguismo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Assicurazione)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Assicurazione)
+            @if (Model.Allergie == null)
+            {
+                <p>Nessuna allergia specificata</p>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Allergie)
+            }
         </dd>
 
         <dt>
@@ -81,15 +71,44 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Isee)
+            @if (Model.Isee == null)
+            {
+                <p>Isee non dichiarato</p>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Isee)
+            }
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DomandaAccolta)
+            @Html.DisplayNameFor(model => model.Bilinguismo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DomandaAccolta)
+            @if (Model.Bilinguismo == true)
+            {
+                <p>Aderisce</p>
+            }
+            else
+            {
+                <p>Non aderisce</p>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assicurazione)
+        </dt>
+
+        <dd>
+            @if (Model.Assicurazione == true)
+            {
+                <p>Aderisce</p>
+            }
+            else
+            {
+                <p>Non aderisce</p>
+            }
         </dd>
 
         <dt>
@@ -97,7 +116,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Mensa)
+            @if (Model.Mensa == true)
+            {
+                <p>Aderisce</p>
+            }
+            else
+            {
+                <p>Non aderisce</p>
+            }
         </dd>
 
         <dt>
@@ -105,7 +131,33 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TrasportoScolastico)
+            @if (Model.TrasportoScolastico == true)
+            {
+                <p>Aderisce</p>
+            }
+            else
+            {
+                <p>Non aderisce</p>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomandaAccolta)
+        </dt>
+
+        <dd>
+            @if (Model.DomandaAccolta == true)
+            {
+                <p>Accolta</p>
+            }
+            else if (Model.DomandaAccolta == false)
+            {
+                <p>Non accolta</p>
+            }
+            else
+            {
+                <p>Esito in sospeso</p>
+            }
         </dd>
 
     </dl>

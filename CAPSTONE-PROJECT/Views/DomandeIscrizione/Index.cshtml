@@ -4,16 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="m-4">
+    <h2>Elenco domande d'iscrizione</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-@*<div class="container-fluid">
-    <div class="row">
-        <div class="col col-12">*@
-            <table class="table">
+    <p>
+        @Html.ActionLink("Inserisci nuova domanda", "Create")
+    </p>
+</div>
+            <table class="table my-form">
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.NomeAlunno)
@@ -91,7 +89,7 @@
                             @Html.DisplayFor(modelItem => item.Isee)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DomandaAccolta)
+                            @Html.CheckBox("DomandaAccolta", new {@class="ms-4"})
                         </td>
                         <td style="display: none">
                             @Html.EditorFor(modelItem => item.Mensa, new { htmlAttributes = new { @class = "text-danger" } })
@@ -100,15 +98,11 @@
                             @Html.DisplayFor(modelItem => item.TrasportoScolastico)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.IdDomanda }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.IdDomanda }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.IdDomanda })
+                            @Html.ActionLink("Modifica", "Edit", new { id = item.IdDomanda }) |
+                            @Html.ActionLink("Dettagli", "Details", new { id = item.IdDomanda }) |
                         </td>
                     </tr>
                 }
 
             </table>
-        @*</div>
-    </div>
-</div>*@
 

@@ -227,7 +227,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Images\Lavagna benvenuti.png" />
+    <Content Include="Content\Images\istockphoto-1ad-612x612.jpg" />
+    <Content Include="Content\Images\istockphoto-admin-612x612.jpg" />
+    <Content Include="Content\Images\pexels-ad-356043.jpeg" />
+    <Content Include="Content\Images\pexels-stud-7972949.jpeg" />
+    <Content Include="Content\Images\pexels-studen-5553050.jpeg" />
+    <Content Include="Content\Images\pexels-studenti-4144923.jpeg" />
     <Content Include="Content\Images\Ragazzi copertina mod.jpg" />
     <Content Include="Content\Images\Ragazzi copertina mod2.jpg" />
     <Content Include="Content\Images\Ragazzi copertina.jpg" />
@@ -236,8 +241,12 @@
     <Content Include="Content\Images\scuola\b218ba9e38ff5eef37eea54db8d1150b.jpg" />
     <Content Include="Content\Images\bullismo-1197781704-612x612.jpg" />
     <Content Include="Content\Images\scuola\bibliothèque-2041540.jpeg" />
+    <Content Include="Content\Images\scuola\Black Doodle Group Project Presentation.jpg" />
     <Content Include="Content\Images\scuola\ecole-etangs2.jpg" />
+    <Content Include="Content\Images\scuola\istockphoto-925672792-612x612.jpg" />
     <Content Include="Content\Images\scuola\parascolaire-ixelles-kiddo-sports-petit.jpg" />
+    <Content Include="Content\Images\scuola\pexels-photo-1101730.jpeg" />
+    <Content Include="Content\Images\scuola\pexels-photo-5571736.jpeg" />
     <Content Include="Content\Images\scuola\tenbosch3.png" />
     <Content Include="Content\Images\sfondo.png" />
     <Content Include="Content\Css\StyleSheet1.css" />
@@ -319,6 +328,7 @@
     <Content Include="Views\Classi\Edit.cshtml" />
     <Content Include="Views\Classi\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\AreaRiservata\PartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

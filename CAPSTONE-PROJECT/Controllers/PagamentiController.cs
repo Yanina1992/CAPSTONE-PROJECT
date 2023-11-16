@@ -10,7 +10,7 @@ using CAPSTONE_PROJECT.Models;
 
 namespace CAPSTONE_PROJECT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class PagamentiController : Controller
     {
         private Context db = new Context();

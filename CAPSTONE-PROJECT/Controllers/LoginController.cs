@@ -29,13 +29,6 @@ namespace CAPSTONE_PROJECT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Users us)
         { 
-            //if (us.Username == "Amministratore" && us.Password == "Amministratore")
-            //{
-            //    us.FKRuolo = 1;
-            //}
-
-            //var findUser = db.Users.Where(u => u.Username == us.Username && u.Password == us.Password).FirstOrDefault();
-
             if (ModelState.IsValid)
             {
                 Users user = db.Users.Where(u => u.Username == us.Username && u.Password == us.Password).FirstOrDefault();
@@ -44,7 +37,7 @@ namespace CAPSTONE_PROJECT.Controllers
 
                 Session["NomeUser"] = user.Username;
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "AreaRiservata");
             }
 
             return View();

@@ -65,11 +65,11 @@ namespace CAPSTONE_PROJECT.Controllers
                     }
                     else
                     {
-                        ViewBag.MessageError = "Codice fiscale già presente";
+                        ViewBag.MessageError = "Attenzione! Il codice fiscale dell'alunno è già vincolato ad un'altra domanda d'iscrizione. Per maggiori dettagli contattare la segreteria.";
                         return View();
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
                 }
                
 
@@ -81,7 +81,7 @@ namespace CAPSTONE_PROJECT.Controllers
             var id = Convert.ToInt32(TempData["id"]);
             
 
-            if (id == null)
+            if (id.ToString() == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -92,6 +92,7 @@ namespace CAPSTONE_PROJECT.Controllers
             }
             return View(domandeIscrizione);
         }
+
         // GET: DomandeIscrizione/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -130,44 +131,10 @@ namespace CAPSTONE_PROJECT.Controllers
                     return View();
                 }
 
-                return RedirectToAction("Index");
+                TempData["Edit"] = "Domanda modificata con successo!";
+                return RedirectToAction("Details", new { id = IdDomanda });
             }
             return View(domandeIscrizione);
-        }
-
-        // GET: DomandeIscrizione/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DomandeIscrizione domandeIscrizione = db.DomandeIscrizione.Find(id);
-            if (domandeIscrizione == null)
-            {
-                return HttpNotFound();
-            }
-            return View(domandeIscrizione);
-        }
-
-        // POST: DomandeIscrizione/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            DomandeIscrizione domandeIscrizione = db.DomandeIscrizione.Find(id);
-            db.DomandeIscrizione.Remove(domandeIscrizione);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
         public ActionResult AggiungiAlunno(int IdDomanda)
@@ -181,12 +148,45 @@ namespace CAPSTONE_PROJECT.Controllers
 
         public ActionResult AggiungiAlunnoListaAttesa(int IdDomanda)
         {
-
             AlunniListaAttesa alunno = new AlunniListaAttesa();
             alunno.FKDomandaIscrizione = IdDomanda;
             db.AlunniListaAttesa.Add(alunno);
             db.SaveChanges();
             return View();
         }
+
+    // GET: DomandeIscrizione/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    DomandeIscrizione domandeIscrizione = db.DomandeIscrizione.Find(id);
+        //    if (domandeIscrizione == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(domandeIscrizione);
+        //}
+
+        // POST: DomandeIscrizione/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    DomandeIscrizione domandeIscrizione = db.DomandeIscrizione.Find(id);
+        //    db.DomandeIscrizione.Remove(domandeIscrizione);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
-}
+} 

@@ -30,12 +30,12 @@ namespace CAPSTONE_PROJECT.Models
         [Display(Name = "Cognome alunno")]
         public string CognomeAlunno { get; set; }
 
-        [StringLength(16)]
+        [StringLength(16, MinimumLength =16, ErrorMessage ="Numero di caratteri errato.")]
         [Required]
         [Display(Name = "Codice fiscale alunno")]
         public string CFAlunno { get; set; }
 
-        [StringLength(2)]
+        [StringLength(2, MinimumLength =2, ErrorMessage ="Età non in linea con il nostro percorso di studi.")]
         [Required]
         [Display(Name = "Età alunno")]
         public string Eta { get; set; }
@@ -48,11 +48,11 @@ namespace CAPSTONE_PROJECT.Models
 
         public bool? Assicurazione { get; set; }
 
-        [StringLength(16)]
+        [StringLength(16, MinimumLength = 16, ErrorMessage = "Numero di caratteri errato.")]
         [Display(Name = "Codice fiscale genitore (o tutore)")]
         public string CFPapa { get; set; }
 
-        [StringLength(16)]
+        [StringLength(16, MinimumLength = 16, ErrorMessage = "Numero di caratteri errato.")]
         [Required]
         [Display(Name = "Codice fiscale genitore 2 (o tutore)")]
         public string CFMamma { get; set; }
@@ -60,7 +60,7 @@ namespace CAPSTONE_PROJECT.Models
         [Column(TypeName = "money")]
         public decimal? Isee { get; set; }
 
-        [Display(Name = "Domanda accolta")]
+        [Display(Name = "Esito domanda")]
         public bool? DomandaAccolta { get; set; }
 
         public virtual bool? Mensa { get; set; }

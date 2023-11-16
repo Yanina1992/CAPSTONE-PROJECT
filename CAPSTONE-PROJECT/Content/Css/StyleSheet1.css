@@ -42,6 +42,10 @@ textarea {
     max-width: 280px;
 }
 
+.navbar {
+    box-shadow: 10px 10px 10px grey;
+}
+
 .navbar a{
     color: rgb(255 255 255 / 60%);
 }
@@ -122,6 +126,8 @@ a, .nav-link {
         background-color: #4950577d;
     }
 
+
+
 #carouselExample {
     box-shadow: 10px 10px 10px grey;
 }
@@ -149,3 +155,19 @@ a, .nav-link {
 .form-group span{
     color: red;
 }
+
+/* Home*/
+
+.home.p {
+    text-shadow: 10px 10px 10px black;
+    background-color: #4950577d;
+}
+
+i{
+    margin-right: 1vw;
+}
+
+/*Admin*/
+/*.class-link{
+   font-weight:500;
+}*/

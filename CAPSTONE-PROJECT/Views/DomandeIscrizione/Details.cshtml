@@ -1,13 +1,22 @@
 ﻿@model CAPSTONE_PROJECT.Models.DomandeIscrizione
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Dettagli";
 }
 
-<h2>Details</h2>
+@if (@TempData["Edit"] != null)
+{
+    <h4 class="m-4" style="color: #00928E">@TempData["Edit"].ToString()</h4>
+}
+else
+{
+    <h2 class="m-4">Domanda n. @this.Model.IdDomanda</h2>
+}
 
-@Html.Partial("_DomandaIscrDetails")
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdDomanda }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="my-form">
+    @Html.Partial("_DomandaIscrDetails")
+    <p>
+        @Html.ActionLink("Modifica", "Edit", new { id = Model.IdDomanda }) |
+        @Html.ActionLink("Torna all'elenco domande", "Index")
+    </p>
+</div>

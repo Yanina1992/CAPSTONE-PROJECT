@@ -3,40 +3,88 @@
     ViewBag.Title = "GestioneClassi";
 }
 
-<h2>GestioneClassi</h2>
+<h2 class="m-4">Gestione classi</h2>
 
-@Html.ActionLink("Classi prime tempo pieno", "GestionePrimeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-@Html.ActionLink("Classi prime tempo corto", "GestionePrimeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-@Html.ActionLink("Classi seconde tempo pieno", "GestioneSecondeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-@Html.ActionLink("Classi seconde tempo corto", "GestioneSecondeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-@Html.ActionLink("Classi terze tempo pieno", "GestioneTerzeTP", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
-@Html.ActionLink("Classi terze tempo corto", "GestioneTerzeTC", "AreaRiservata", new { area = "" }, new { @class = "btn btn-primary" })
+<div class="container">
+    <div class="row">
+
+        <div class="col col-12">
+            <h4 class="m-4">Prime</h4>
+            <div class="row" style="height: 2.5em">
+                <div class="col col-12 col-md-6">
+                    <div class="card h-100">
+                        @Html.ActionLink("Classi prime tempo pieno", "GestionePrimeTP", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6">
+                    <div class="card h-100">
+                        @Html.ActionLink("Classi prime tempo corto", "GestionePrimeTC", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-12 mt-4">
+            <h4 class="m-4">Seconde</h4>
+            <div class="row" style="height: 2.5em">
+                <div class="col col-12 col-md-6">
+                    <div class="card h-100">
+                        @Html.ActionLink("Classi seconde tempo pieno", "GestioneSecondeTP", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6">
+                    <div class="card h-100">
+                        @Html.ActionLink("Classi seconde tempo corto", "GestioneSecondeTC", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-12 my-4">
+            <h4 class="m-4">Terze</h4>
+            <div class="row" style="height: 2.5em">
+                <div class="col col-12 col-md-6">
+                    <div class="card h-100">
+                        @Html.ActionLink("Classi terze tempo pieno", "GestioneTerzeTP", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6">
+                    <div class="card h-100">
+                        @Html.ActionLink("Classi terze tempo corto", "GestioneTerzeTC", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-4" />
+</div>
 
 
-<a href="#" id="salvaClassi">Visualizza classi</a>
-<ul id="classiSalvate"></ul>
+<div class="container">
+    <a href="#" id="salvaClassi">Visualizza classi generate</a>
+    <ul id="classiSalvate"></ul>
 
-<label id="label" style="display:none">Inserisci anno scolastico</label>
-<input id="year" style="display:none" placeholder="2020-2021" />
-<button id="save" style="display:none">Salva classi</button>
+    <label id="label" style="display:none">Inserisci anno scolastico</label>
+    <input id="year" style="display:none" placeholder="2020-2021" />
+    <button id="save" style="display:none" class="btn">Salva classi</button>
 
-<div id="response"></div>
+    <div id="response"></div>
 
-@{ 
-    var myTemp = TempData["ClassiGenerate"];
-}
+    @{
+        var myTemp = TempData["ClassiGenerate"];
+    }
 
     @*Riprendi da qui
         <p id="classiGenerate" style="display:none">@myTemp</p>*@
 
-    <p id="classiGenerate" style="display:none">Classi generate correttamente</p>
+    <p id="classiGenerate" style="display: none; color: #00928E">Classi generate correttamente</p>
     <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
-    <button id="saveStudents" style="display:none">Salva studenti</button>
-}
+    <button id="saveStudents" style="display:none" class="btn">Salva studenti</button>
 
 
-<div id="responseSaveStudents"></div>
 
+    <div id="responseSaveStudents"></div>
+</div>
 
 @section Scripts {
     <script type="text/javascript">

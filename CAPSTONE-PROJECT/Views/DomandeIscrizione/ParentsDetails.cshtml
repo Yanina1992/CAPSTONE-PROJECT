@@ -4,12 +4,14 @@
     ViewBag.Title = "ParentsDetails";
 }
 
-<h2>ParentsDetails</h2>
+<h2 class="m-4" style="color: #00928E">Domanda trasmessa con successo!</h2>
 
-@Html.Partial("_DomandaIscrDetails")
+<div class="my-form">
+    <h4>Riepilogo domanda n. @this.Model.IdDomanda</h4>
+    @Html.Partial("_DomandaIscrDetails")
+</div>
 
 
-
-<p>
+<p class="m-4">
     @Html.ActionLink("Torna nell'area famiglie", "Index", "Famiglie")
 </p>

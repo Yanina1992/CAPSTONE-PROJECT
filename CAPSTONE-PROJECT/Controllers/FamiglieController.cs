@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using CAPSTONE_PROJECT.Models;
+using System;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using CAPSTONE_PROJECT.Models;
-using Microsoft.Ajax.Utilities;
 
 namespace CAPSTONE_PROJECT.Controllers
 {
@@ -136,6 +132,9 @@ namespace CAPSTONE_PROJECT.Controllers
                     db.Entry(alunno).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
+
+                TempData["totale"] = pagamenti.Totale;
+                TempData["id"] = pagamenti.IdPagamento;
 
             }
             catch (Exception ex) 

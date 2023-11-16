@@ -1,14 +1,34 @@
-﻿
+﻿@using CAPSTONE_PROJECT.Models
+
 @{
     ViewBag.Title = "TrovaPagamenti";
 }
 
-<h2>TrovaPagamenti</h2>
+<h2 class="m-4">Cerca pagamento</h2>
 
-<input class="form-control me-2" id="cf" type="text" placeholder="Inserisci il tuo codice fiscale">
-<button class="btn btn-primary" id="cfButton">Trova pagamenti</button>
-<p id="response"></p>
 
+<div class="my-form">
+    <input class="form-control m-4" id="cf" type="text" placeholder="Inserisci il tuo codice fiscale">
+    <button class="btn m-4" id="cfButton">Trova pagamenti</button>
+
+    @{
+        var totale = TempData["totale"];
+    }
+
+    @{ 
+        var id = TempData["id"];
+    }
+
+    @if (totale != null)
+    {
+        <div class="m-4" id="showPag">
+            <h4>Importo mensile dovuto:</h4>
+            <h5 id="response" class="m-4">@totale €</h5>
+            @Html.ActionLink("Visualizza dettagli pagamento", "Details", "Pagamenti", new { id = @id }, new { @class = "nav-link" })
+        </div>
+    }
+
+</div>
 
 @section Scripts {
     <script>
@@ -22,7 +42,8 @@
                         url: "Pagamento",
                         data: { cf: inputVal },
                         success: function (data) {
-                            console.log(data)
+                            console.log(data);
+                            location.reload();
                         }
                     })
                 }
