@@ -13,7 +13,7 @@ La mia attenzione è dunque volta alla funzionalità per chi amministra il sito,
 ### Funzionalità
 L'applicazione permette ai genitori di inviare le domande di iscrizione all'istituto che, se accolte, inseriranno l'alunno nel sistema. I pagamenti dovuti alla scuola saranno calcolati in base ai servizi
 richiesti (refezione scolastica, trasporto, ecc.).
-Per quanto riguarda la parte degli amministratori, protetta da username e password, sarà possibile generare automaticamente le classi in bas alle richieste ricevute, ma si potrà anche intervenire per modificare
+Per quanto riguarda la parte degli amministratori, protetta da username e password, sarà possibile generare automaticamente le classi in base alle richieste ricevute, ma si potrà anche intervenire per modificare
 i singoli casi.
 
 ## Linguaggi, framework e librerie utilizzate
