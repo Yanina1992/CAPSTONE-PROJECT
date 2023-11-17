@@ -1,0 +1,64 @@
+﻿@model CAPSTONE_PROJECT.Models.Alunni
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="m-4">Dettagli alunno n.@Model.IdAlunno</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal my-form">
+        <dt>
+            @Html.DisplayNameFor(model => model.Classi.Anno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classi.Anno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Classi.Sezione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classi.Sezione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomandeIscrizione.NomeAlunno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomandeIscrizione.NomeAlunno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomandeIscrizione.CognomeAlunno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomandeIscrizione.CognomeAlunno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pagamenti.IdPagamento)
+        </dt>
+
+        <dd>
+            @if (Model.FKPagamento == null)
+            {
+                <p>-</p>
+            }
+            else
+            {
+                <p>@Model.FKPagamento</p>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p class="m-4">
+    @*@Html.ActionLink("Modifica", "Edit", new { id = Model.IdAlunno }) |*@
+    @Html.ActionLink("Torna alla lista alunni", "Index")
+</p>

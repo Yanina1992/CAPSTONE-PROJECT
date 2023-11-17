@@ -6,10 +6,6 @@
 
 <div class="m-4">
     <h2>Elenco domande d'iscrizione</h2>
-
-    <p>
-        @Html.ActionLink("Inserisci nuova domanda", "Create")
-    </p>
 </div>
             <table class="table my-form">
                 <tr>
@@ -89,7 +85,16 @@
                             @Html.DisplayFor(modelItem => item.Isee)
                         </td>
                         <td>
-                            @Html.CheckBox("DomandaAccolta", new {@class="ms-4"})
+                            @if (item.DomandaAccolta == true)
+                            {
+
+
+                                <p>Accolta</p>
+                            }
+                            else
+                            {
+                                <p>Non accolta</p>
+                            }
                         </td>
                         <td style="display: none">
                             @Html.EditorFor(modelItem => item.Mensa, new { htmlAttributes = new { @class = "text-danger" } })

@@ -163,6 +163,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AlunniListaAttesaController.cs" />
+    <Compile Include="Controllers\AlunnisController.cs" />
     <Compile Include="Controllers\AreaRiservataController.cs" />
     <Compile Include="Controllers\ClassiController.cs" />
     <Compile Include="Controllers\DomandeIscrizioneController.cs" />
@@ -229,7 +231,10 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Images\istockphoto-1ad-612x612.jpg" />
     <Content Include="Content\Images\istockphoto-admin-612x612.jpg" />
+    <Content Include="Content\Images\istockphoto-avvisi-612x612.jpg" />
     <Content Include="Content\Images\pexels-ad-356043.jpeg" />
+    <Content Include="Content\Images\pexels-calendario-5386754.jpeg" />
+    <Content Include="Content\Images\pexels-mensa-8617542.jpeg" />
     <Content Include="Content\Images\pexels-stud-7972949.jpeg" />
     <Content Include="Content\Images\pexels-studen-5553050.jpeg" />
     <Content Include="Content\Images\pexels-studenti-4144923.jpeg" />
@@ -247,6 +252,7 @@
     <Content Include="Content\Images\scuola\parascolaire-ixelles-kiddo-sports-petit.jpg" />
     <Content Include="Content\Images\scuola\pexels-photo-1101730.jpeg" />
     <Content Include="Content\Images\scuola\pexels-photo-5571736.jpeg" />
+    <Content Include="Content\Images\phone-old-year-built-1955-bakelite-163007.jpeg" />
     <Content Include="Content\Images\scuola\tenbosch3.png" />
     <Content Include="Content\Images\sfondo.png" />
     <Content Include="Content\Css\StyleSheet1.css" />
@@ -329,6 +335,16 @@
     <Content Include="Views\Classi\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\AreaRiservata\PartialView.cshtml" />
+    <Content Include="Views\Alunnis\Create.cshtml" />
+    <Content Include="Views\Alunnis\Delete.cshtml" />
+    <Content Include="Views\Alunnis\Details.cshtml" />
+    <Content Include="Views\Alunnis\Edit.cshtml" />
+    <Content Include="Views\Alunnis\Index.cshtml" />
+    <Content Include="Views\AlunniListaAttesa\Create.cshtml" />
+    <Content Include="Views\AlunniListaAttesa\Delete.cshtml" />
+    <Content Include="Views\AlunniListaAttesa\Details.cshtml" />
+    <Content Include="Views\AlunniListaAttesa\Edit.cshtml" />
+    <Content Include="Views\AlunniListaAttesa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

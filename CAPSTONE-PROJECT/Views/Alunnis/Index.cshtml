@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CAPSTONE_PROJECT.Models.Alunni>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="m-4">Lista alunni</h2>
+
+<table class="table my-form">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classi.Anno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classi.Sezione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DomandeIscrizione.NomeAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DomandeIscrizione.CognomeAlunno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pagamenti.IdPagamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classi.Anno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classi.Sezione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DomandeIscrizione.NomeAlunno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DomandeIscrizione.CognomeAlunno)
+        </td>
+        <td>
+            @if (item.Pagamenti == null)
+            {
+                <p>-</p>
+            }
+            else
+            {
+                <p>@item.Pagamenti.IdPagamento</p>
+            }
+            @Html.DisplayFor(modelItem => item.Pagamenti.IdPagamento)
+        </td>
+        <td>
+            @*@Html.ActionLink("Modifica", "Edit", new { id = item.IdAlunno }) |*@
+            @Html.ActionLink("Dettagli", "Details", new { id = item.IdAlunno }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdAlunno })
+        </td>
+    </tr>
+}
+
+</table>

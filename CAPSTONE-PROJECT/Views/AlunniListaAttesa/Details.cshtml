@@ -1,0 +1,26 @@
+﻿@model CAPSTONE_PROJECT.Models.AlunniListaAttesa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AlunniListaAttesa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DomandeIscrizione.NomeAlunno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomandeIscrizione.NomeAlunno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAlunnoLista }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

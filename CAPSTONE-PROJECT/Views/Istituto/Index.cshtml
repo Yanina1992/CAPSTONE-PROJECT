@@ -8,9 +8,9 @@
     @*Intestazione*@
 
 <div class="d-flex flex-column align-items-center justify-content-center mb-4" id="school-image">
-        <h1 class="white-titles">Benvenuti all'Istituto Comprensivo Macondo</h1>
-        <h2 class="white-titles">La nostra scuola</h2>
-        <p class="m-5">
+        <h1 class="white-titles" style="background-color: #4950577d">Benvenuti all'Istituto Comprensivo Macondo</h1>
+        <h2 class="white-titles" style="background-color: #4950577d">La nostra scuola</h2>
+        <p class="m-5 px-5">
             L'Istituto Compresivo Macondo racchiude la scuole dell'infanzia, la scuola elementare e la secondaria di primo grado.
             La nostra scuola media rappresenta il punto cruciale d'incontro tra il mondo dell'infazia e quello degli adulti, e per questo prestiamo particolare attenzione a questo
             periodo così importante per i nostri ragazzi, preparandoci ad accogliere i bambini appena usciti delle quinte e a salutare con orgoglio dei ragazzi pronti per iniziare al meglio il liceo.
@@ -47,7 +47,7 @@
                 </div>
 
                 @*Iscrizioni*@
-                <div class="card text-center">
+                <div class="card text-center m-4">
                     <div class="card-header">
                         
                     </div>
@@ -67,58 +67,46 @@
 
             </div>
             @*Aside*@
-            <div class="col col-4">
+        <div class="col col-4">
 
-                <div class="card mb-2" style="">
-                    <div class="card-body">
-                        <h5 class="card-title">Mensa</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Menù invernale</h6>
-                        <p class="card-text text-truncate">
-                            I menù delle mense scolastiche dell'IC Giacomo Matteotti  per le scuole dell'infanzia, primarie e secondarie di 1° grado sono articolati in quattro 
+            <div class="card border-0 m-4" style="background-color: var(--bs-card-cap-bg); box-shadow: 10px 10px 10px grey; ">
+                <img src="~/Content/Images/pexels-mensa-8617542.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Mensa
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            I menù delle mense scolastiche dell'IC Giacomo Matteotti  per le scuole dell'infanzia, primarie e secondarie di 1° grado sono articolati in quattro
                             settimane, con distinzione del menù  invernale (da novembre a marzo) ed estivo (da aprile a giugno).
                             La rotazione delle settimane segue il calendario indipendentemente dalla sospensione delle attività didattiche.
-                            Dal 6 novembre entrerà in vigore il menù invernale per tutti i plessi..
-                        </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                            Dal 6 novembre entrerà in vigore il menù invernale per tutti i plessi.
+                        </div>
                     </div>
                 </div>
-
-                <div class="card mb-2" style="">
-                    <div class="card-body">
-                        <h5 class="card-title">Calendario</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Back to school!</h6>
-                        <p class="card-text text-truncate">
-                            In applicazione del calendario scolastico regionale e della delibera degli Organi Collegiali, si comunica, che l’inizio delle attività didattiche 
-                            è previsto per il giorno 14 settembre 2023.
-                            Gli orari verranno comunicati in tempi utili..
-                        </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-
-                <div class="card mb-2" style="">
-                    <div class="card-body">
-                        <h5 class="card-title">Avvisi</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-
-                <div class="card mb-2" style="">
-                    <div class="card-body">
-                        <h5 class="card-title">Contatti</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="card border-0 m-4" style="background-color: var(--bs-card-cap-bg); box-shadow: 10px 10px 10px grey; ">
+                <img src="~/Content/Images/pexels-calendario-5386754.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Calendario
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            In applicazione del calendario scolastico regionale e della delibera degli Organi Collegiali, si comunica, che l’inizio delle attività didattiche
+                            è previsto per il giorno 14 settembre 2023.
+                            Gli orari verranno comunicati in tempi utili.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         </div>
 
         </div>

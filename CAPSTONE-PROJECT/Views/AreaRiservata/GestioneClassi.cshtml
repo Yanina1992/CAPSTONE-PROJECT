@@ -61,7 +61,7 @@
 
 
 <div class="container">
-    <a href="#" id="salvaClassi">Visualizza classi generate</a>
+    <button id="salvaClassi" class="btn">Visualizza classi generate</button>
     <ul id="classiSalvate"></ul>
 
     <label id="label" style="display:none">Inserisci anno scolastico</label>
@@ -74,16 +74,13 @@
         var myTemp = TempData["ClassiGenerate"];
     }
 
-    @*Riprendi da qui
-        <p id="classiGenerate" style="display:none">@myTemp</p>*@
-
     <p id="classiGenerate" style="display: none; color: #00928E">Classi generate correttamente</p>
     <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
     <button id="saveStudents" style="display:none" class="btn">Salva studenti</button>
 
+    <p id="responseSaveStudents" style="color: #00928E; display:none" class="my-4">Alunni salvati correttamente</p>
+    <a href="../Alunnis/Index" id="show-link" style="display: none">Visualizza la lista degli alunni</a>
 
-
-    <div id="responseSaveStudents"></div>
 </div>
 
 @section Scripts {
@@ -118,10 +115,7 @@
                         success: function (response) {
                             console.log(response)
                             $('#response').append("")
-                            //Riprendi da qui
-                            //if (myTemp.val == 2) {
-                            //    $("classiGenerate").val = myTemp;
-                            //}
+                            $("#response").empty();
                             $("#classiGenerate").show();
                             $("#pSave").show();
                             $("#saveStudents").show();
@@ -137,15 +131,13 @@
             })
 
             $("#saveStudents").click(function () {
+                $("#responseSaveStudents").show();
+                $("#show-link").show();
                 $.ajax({
                     url: "SalvaStudenti",
                     type: "POST",
                     success: function (response) {
                         console.log(response)
-                        var newPar = "<p class='text-success'>Alunni salvati correttamente</p>"
-                        if ($('#responseSaveStudents').children().length == 0) {
-                            $('#responseSaveStudents').append(newPar)
-                        }
                     }
                 })
             })
