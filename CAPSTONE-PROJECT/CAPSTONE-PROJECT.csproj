@@ -173,6 +173,7 @@
     <Compile Include="Controllers\IstitutoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagamentiController.cs" />
+    <Compile Include="Controllers\PagamentiEffettuatiController.cs" />
     <Compile Include="Controllers\StudentiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -345,6 +346,11 @@
     <Content Include="Views\AlunniListaAttesa\Details.cshtml" />
     <Content Include="Views\AlunniListaAttesa\Edit.cshtml" />
     <Content Include="Views\AlunniListaAttesa\Index.cshtml" />
+    <Content Include="Views\PagamentiEffettuati\Create.cshtml" />
+    <Content Include="Views\PagamentiEffettuati\Delete.cshtml" />
+    <Content Include="Views\PagamentiEffettuati\Details.cshtml" />
+    <Content Include="Views\PagamentiEffettuati\Edit.cshtml" />
+    <Content Include="Views\PagamentiEffettuati\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

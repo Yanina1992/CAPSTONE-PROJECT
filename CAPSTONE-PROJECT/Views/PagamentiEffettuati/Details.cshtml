@@ -1,0 +1,42 @@
+﻿@model CAPSTONE_PROJECT.Models.PagamentiEffettuati
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="m-4" style="color: #00928E">Pagamento effettuato con successo!</h2>
+
+<div class="my-form">
+    <h3>Dettagli</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pagamenti.IdPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pagamenti.IdPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalePagato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalePagato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotaleDaPagare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotaleDaPagare)
+        </dd>
+
+    </dl>
+</div>
+<p class="m-4">
+   @*@Html.ActionLink("Effettua un altro pagamento", "Edit", null, new { area = "" }, new { @class = "nav-link", @id = Model.IdPagamentoEffettuato }) |*@
+   <a href="/../Famiglie/Index">Torna nell'area famiglie</a>
+</p>

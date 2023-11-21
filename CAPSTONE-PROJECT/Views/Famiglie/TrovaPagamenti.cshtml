@@ -12,18 +12,18 @@
     <button class="btn m-4" id="cfButton">Trova pagamenti</button>
 
     @{
-        var totale = TempData["totale"];
+        var totale = TempData["totale"] as string;
     }
 
-    @{ 
+    @{
         var id = TempData["id"];
     }
 
-    @if (totale != null)
+    @if(totale != null)
     {
         <div class="m-4" id="showPag">
             <h4>Importo mensile dovuto:</h4>
-            <h5 id="response" class="m-4">@totale €</h5>
+            <h5 id="response" class="m-4">@decimal.Parse(totale).ToString("C2")</h5>
             @Html.ActionLink("Visualizza dettagli pagamento", "Details", "Pagamenti", new { id = @id }, new { @class = "nav-link" })
         </div>
     }

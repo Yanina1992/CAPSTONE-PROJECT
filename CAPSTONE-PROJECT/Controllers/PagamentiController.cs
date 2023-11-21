@@ -29,6 +29,7 @@ namespace CAPSTONE_PROJECT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Pagamenti pagamenti = db.Pagamenti.Find(id);
+
             if (pagamenti == null)
             {
                 return HttpNotFound();

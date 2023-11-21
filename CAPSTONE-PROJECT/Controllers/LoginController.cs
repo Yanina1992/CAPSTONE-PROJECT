@@ -15,10 +15,6 @@ namespace CAPSTONE_PROJECT.Controllers
     public class LoginController : Controller
     {
         private Context db = new Context();
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult Login() 
         {
@@ -43,5 +39,12 @@ namespace CAPSTONE_PROJECT.Controllers
             return View();
         }
         
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

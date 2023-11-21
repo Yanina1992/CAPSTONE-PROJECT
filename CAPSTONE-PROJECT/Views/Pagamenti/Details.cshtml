@@ -5,16 +5,26 @@
 }
 
 <h2 class="m-4">Dettagli pagamento n. @this.Model.IdPagamento</h2>
+@{
+    Session["fkPag"] = Model.IdPagamento;
+}
 
-<div>
+<div class="my-form">
     <hr />
-    <dl class="dl-horizontal my-form">
+    <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Mensa)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Mensa)
+            @if (Model.Mensa != null)
+            {
+                @Html.DisplayFor(model => model.Mensa)
+            }
+            else
+            {
+                <p>-</p>
+            }
         </dd>
 
         <dt>
@@ -22,7 +32,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TrasportoScolastico)
+            @if (Model.TrasportoScolastico != null)
+            {
+                @Html.DisplayFor(model => model.TrasportoScolastico)
+            }
+            else
+            {
+                <p>-</p>
+            }
         </dd>
 
         <dt>
@@ -30,7 +47,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Assicurazione)
+            @if (Model.Assicurazione != null)
+            {
+                @Html.DisplayFor(model => model.Assicurazione)
+            }
+            else
+            {
+                <p>-</p>
+            }
         </dd>
 
         <dt>
@@ -38,7 +62,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Bilinguismo)
+            @if (Model.Bilinguismo != null)
+            {
+                @Html.DisplayFor(model => model.Bilinguismo)
+            }
+            else
+            {
+                <p>-</p>
+            }
         </dd>
 
         <dt>
@@ -50,8 +81,17 @@
         </dd>
 
     </dl>
+
+
+    <p>
+        @Html.ActionLink("Procedi con il pagamento", "Create", "PagamentiEffettuati")
+    </p>
+
 </div>
-<p class="m-4">
-    @*@Html.ActionLink("Modifica", "Edit", new { id = Model.IdPagamento }) |*@
-    @Html.ActionLink("Torna alla lista dei pagamenti", "Index")
-</p>
+
+        @{
+            Session["Totale"] = Model.Totale;
+        }
+
+
+

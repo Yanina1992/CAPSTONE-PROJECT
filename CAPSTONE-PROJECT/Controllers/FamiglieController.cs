@@ -135,7 +135,7 @@ namespace CAPSTONE_PROJECT.Controllers
                         db.SaveChanges();
                     }
 
-                    TempData["totale"] = pagamenti.Totale;
+                    TempData["totale"] = (pagamenti.Totale).ToString();
                     TempData["id"] = pagamenti.IdPagamento;
                 }
                 else
@@ -143,7 +143,7 @@ namespace CAPSTONE_PROJECT.Controllers
                     var totale = alunno.Pagamenti.Totale;
                     var id = alunno.FKPagamento;
 
-                    TempData["totale"] = totale; 
+                    TempData["totale"] = totale.ToString(); 
                     TempData["id"] = id;
                 }
             }

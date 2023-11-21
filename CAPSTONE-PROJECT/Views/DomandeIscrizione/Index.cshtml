@@ -76,7 +76,14 @@
                             @Html.DisplayFor(modelItem => item.Assicurazione)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CFPapa)
+                            @if (item.CFPapa != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.CFPapa)
+                            }
+                            else
+                            {
+                                <p class="px-5">-</p>
+                            }
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.CFMamma)

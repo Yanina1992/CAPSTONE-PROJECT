@@ -139,16 +139,18 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Salva modifiche" class="btn btn-default"/>
+                    <input type="submit" value="Salva modifiche" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
+
+    <div class="m-4">
+        @Html.ActionLink("Vai alla pagina di dettaglio della domanda", "Details", new { id = Model.IdDomanda })
+    </div>
+
 </div>
 
-<div class="m-4">
-    @Html.ActionLink("Vai alla pagina di dettaglio della domanda", "Details", new { id = Model.IdDomanda })
-</div>
 
 @section Scripts {
 
