@@ -24,18 +24,24 @@ namespace CAPSTONE_PROJECT.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Users us)
-        { 
+        {
             if (ModelState.IsValid)
             {
-                Users user = db.Users.Where(u => u.Username == us.Username && u.Password == us.Password).FirstOrDefault();
-                FormsAuthentication.SetAuthCookie(user.Username, false);
-                db.SaveChanges();
+                try
+                {
+                    Users user = db.Users.Where(u => u.Username == us.Username && u.Password == us.Password).FirstOrDefault();
+                    FormsAuthentication.SetAuthCookie(user.Username, false);
+                    db.SaveChanges();
 
-                Session["NomeUser"] = user.Username;
+                    Session["NomeUser"] = user.Username;
 
-                return RedirectToAction("Index", "AreaRiservata");
+                    return RedirectToAction("Index", "AreaRiservata");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.ErrorMessage = "Username o password non validi";
+                }
             }
-
             return View();
         }
         
