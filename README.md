@@ -11,8 +11,7 @@ comunicazione tra scuola e famiglia, semplificando pratiche che spesso si rivela
 La mia attenzione è dunque volta alla funzionalità per chi amministra il sito, e all'intuitività per gli utenti esterni.
 
 ### Guarda il video
-[
-](https://www.linkedin.com/feed/update/urn:li:ugcPost:7133499001793855489/)
+[![Watch the video](https://www.linkedin.com/feed/update/urn:li:ugcPost:7133499001793855489/)](https://www.linkedin.com/feed/update/urn:li:ugcPost:7133499001793855489/)
 
 ### Funzionalità
 L'applicazione permette ai genitori di inviare le domande di iscrizione all'istituto che, se accolte, inseriranno l'alunno nel sistema. I pagamenti dovuti alla scuola saranno calcolati in base ai servizi
