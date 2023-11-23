@@ -19,6 +19,9 @@ Per quanto riguarda la parte degli amministratori, protetta da username e passwo
 i singoli casi.
 
 ## Linguaggi, framework e librerie utilizzate
-- .NET (MVC - Entity Framework)
-- jQuery
+- HTML
+- CSS
 - Bootstrap
+- .NET (C# - MVC - Entity Framework)
+- SQL Server
+- jQuery
