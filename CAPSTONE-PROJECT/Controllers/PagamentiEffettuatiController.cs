@@ -50,6 +50,7 @@ namespace CAPSTONE_PROJECT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TotalePagato")] PagamentiEffettuati pagamentiEffettuati)
         {
+            //The "fkPag" and "total" values come from the details page of the payment in question, so that I can calculate the amount already paid and the amount still due to the school
             var id = Convert.ToInt32(Session["fkPag"]);
             pagamentiEffettuati.FKPagamento = id;
             var tot = Convert.ToDecimal(Session["Totale"]);
@@ -59,8 +60,6 @@ namespace CAPSTONE_PROJECT.Controllers
 
             if (ModelState.IsValid)
             {
-              
-
                 db.PagamentiEffettuati.Add(pagamentiEffettuati);
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = pagamentiEffettuati.IdPagamentoEffettuato });

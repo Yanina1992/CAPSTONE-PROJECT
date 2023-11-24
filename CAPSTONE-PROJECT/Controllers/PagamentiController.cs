@@ -50,7 +50,6 @@ namespace CAPSTONE_PROJECT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdPagamento,Mensa,TrasportoScolastico,Assicurazione,Bilinguismo,Totale")]Pagamenti pagamenti)
         {
-
             if (ModelState.IsValid)
             {
                 db.Pagamenti.Add(pagamenti);
@@ -126,17 +125,5 @@ namespace CAPSTONE_PROJECT.Controllers
             }
             base.Dispose(disposing);
         }
-
-        //Questo metodo non ha senso: ho calcolo qui i pagamenti, oppure bo, non ha ragione di esistere, perché mi crea per ogni alunno un pagamento vuoto, e tra l'altro non lo chiamo mai...
-        //public ActionResult CalcoloPagamenti()
-        //{
-        //    var alunni = db.Alunni.Select(m => new { m.FKDomandaIscrizione, m.IdAlunno }).ToList();
-        //    foreach (var item in alunni)
-        //    {
-        //        Pagamenti pagamento = new Pagamenti();
-
-        //    }
-        //    return View();
-        //}
     }
 }

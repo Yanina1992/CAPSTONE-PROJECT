@@ -1,7 +1,9 @@
 ﻿using CAPSTONE_PROJECT.Models;
 using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace CAPSTONE_PROJECT.Controllers
 {
@@ -22,11 +24,15 @@ namespace CAPSTONE_PROJECT.Controllers
         [HttpPost]
         public JsonResult Pagamento(string cf)
         {
+            //Find the parent CF
             DomandeIscrizione domanda = db.DomandeIscrizione.FirstOrDefault(e => e.CFPapa == cf || e.CFMamma == cf);
             try
             {
+                //Find the student who has a parent with that specific CF value
                 Alunni alunno = db.Alunni.Where(m => m.FKDomandaIscrizione.ToString() == domanda.IdDomanda.ToString()).FirstOrDefault();
 
+                //Check if this student already has a generated payment:
+                //Case 1: if they don't have a payment, create a new one by calculating all the required services
                 if (alunno.FKPagamento == null)
                 {
                     var bilinguismo = domanda.Bilinguismo;
@@ -48,7 +54,7 @@ namespace CAPSTONE_PROJECT.Controllers
                         pagamenti.Assicurazione = 6;
                         totale += 6;
                     }
-
+                    //The Isee value is taken into account to calculate the amout of main services
                     if (isee < 23120)
                     {
                         if (mensa == true)
@@ -119,6 +125,7 @@ namespace CAPSTONE_PROJECT.Controllers
                         Exception exception = new Exception();
                     }
 
+                    //Total amount due to the school
                     pagamenti.Totale = totale;
 
                     if (ModelState.IsValid)
@@ -127,6 +134,7 @@ namespace CAPSTONE_PROJECT.Controllers
                         db.SaveChanges();
                     }
 
+                    //Bind the payment to its student in the db
                     alunno.FKPagamento = pagamenti.IdPagamento;
 
                     if (ModelState.IsValid)
@@ -135,14 +143,17 @@ namespace CAPSTONE_PROJECT.Controllers
                         db.SaveChanges();
                     }
 
+                    //Send data to the view
                     TempData["totale"] = (pagamenti.Totale).ToString();
                     TempData["id"] = pagamenti.IdPagamento;
                 }
+                //Case 2: If they do have a payment, take data from db...
                 else
                 {
                     var totale = alunno.Pagamenti.Totale;
                     var id = alunno.FKPagamento;
 
+                //and send them to the view
                     TempData["totale"] = totale.ToString(); 
                     TempData["id"] = id;
                 }

@@ -3,8 +3,11 @@
     ViewBag.Title = "GestioneClassi";
 }
 
-<h2 class="m-4">Gestione classi</h2>
+@*@{
+    var classiGiaGenerate = @TempData["ErrorMessage"];
+}*@
 
+<h2 class="m-4">Gestione classi</h2>ì
 <div class="container">
     <div class="row">
 
@@ -55,6 +58,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <hr class="mt-4" />
 </div>
@@ -70,13 +74,16 @@
 
     <div id="response"></div>
 
-    @{
-        var myTemp = TempData["ClassiGenerate"];
+    @*@if (classiGiaGenerate != null)
+    {
+        <p>@classiGiaGenerate.ToString()</p>
     }
-
-    <p id="classiGenerate" style="display: none; color: #00928E">Classi generate correttamente</p>
-    <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
-    <button id="saveStudents" style="display:none" class="btn">Salva studenti</button>
+    else
+    {*@
+        <p id="classiGenerate" style="display: none; color: #00928E">Classi generate correttamente</p>
+        <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
+        <button id="saveStudents" style="display:none" class="btn">Salva studenti</button>
+    @*}*@
 
     <p id="responseSaveStudents" style="color: #00928E; display:none" class="my-4">Alunni salvati correttamente</p>
     <a href="../Alunnis/Index" id="show-link" style="display: none">Visualizza la lista degli alunni</a>
@@ -142,6 +149,5 @@
                 })
             })
         })
-
     </script>
 }

@@ -7,17 +7,15 @@
 <div class="container forms">
     <div class="row">
         <div class="col col-12 my-form">
-
             <h2>Login</h2>
-
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-
                 <div class="">
                     <h4>Area riservata agli amministratori</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                     <div class="form-group">
                         @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -49,18 +47,18 @@
             }
 
             @{
-                        <p class="ms-3 text-danger">@ViewBag.ErrorMessage</p>
+                <p class="ms-3 text-danger">@ViewBag.ErrorMessage</p>
             }
 
         </div>
     </div>
 </div>
 
-            @section scripts{
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $(".role").val("1");
-                        console.log($(".role").val());
-                    })
-                </script>
-            }
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".role").val("1");
+            console.log($(".role").val());
+        })
+    </script>
+}

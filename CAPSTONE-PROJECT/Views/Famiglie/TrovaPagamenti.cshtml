@@ -4,22 +4,20 @@
     ViewBag.Title = "TrovaPagamenti";
 }
 
+@{
+    var totale = TempData["totale"] as string;
+}
+
+@{
+    var id = TempData["id"];
+}
+
 <h2 class="m-4">Cerca pagamento</h2>
-
-
 <div class="my-form">
+    @*Input in which parents insert their CF*@
     <input class="form-control m-4" id="cf" type="text" placeholder="Inserisci il tuo codice fiscale">
     <button class="btn m-4" id="cfButton">Trova pagamenti</button>
-
-    @{
-        var totale = TempData["totale"] as string;
-    }
-
-    @{
-        var id = TempData["id"];
-    }
-
-    @if(totale != null)
+    @if (totale != null)
     {
         <div class="m-4" id="showPag">
             <h4>Importo mensile dovuto:</h4>
@@ -27,9 +25,9 @@
             @Html.ActionLink("Visualizza dettagli pagamento", "Details", "Pagamenti", new { id = @id }, new { @class = "nav-link" })
         </div>
     }
-
 </div>
 
+@*Sending the parent CF and calling the function "Pagamento", in order to generate the payment for the student who has a parent with that CF value*@
 @section Scripts {
     <script>
         $(document).ready(function () {
@@ -47,10 +45,7 @@
                         }
                     })
                 }
-
             })
-
-
         })
     </script>
 }

@@ -34,6 +34,7 @@ namespace CAPSTONE_PROJECT.Controllers
         }
         public ActionResult GestioneClassi()
         {
+            //Student will be categorized in a list based on the age and whether they follow a full-time or part-time schedule
             foreach (var item in db.DomandeIscrizione)
             {
                 if (item.Eta == "11")
@@ -103,11 +104,12 @@ namespace CAPSTONE_PROJECT.Controllers
                 {
                     ViewBag.ErrorMessage("Incongruenza con l'età dell'alunno relativo alla domanda" + item.IdDomanda);
                 };
-
             }
 
             return View();
         }
+
+        //There a is dedicated view for each list, allowing the admin to review each case
         public ActionResult GestionePrimeTP()
         {
             GestioneClassi();
@@ -138,10 +140,13 @@ namespace CAPSTONE_PROJECT.Controllers
             GestioneClassi();
             return View(classiTerzeTC.ToList());
         }
+
+        //If everything is okay, every list will be saved in the "listaClassi" as a class entity
         public JsonResult SalvaClassi()
         {
             GestioneClassi();
 
+            //Every class must have at least 5 students
             if (classiPrimeTP.Count > 5)
             {
                 Classi PrimaA = new Classi();
@@ -205,22 +210,32 @@ namespace CAPSTONE_PROJECT.Controllers
             GestioneClassi();
             SalvaClassi();
 
+            //Retrieve all the "AnnoScolastico" values from the database
             var listaAnnoScDb = db.Classi.Select(m => new { m.AnnoScolastico }).ToList();
+            //Save the input value that admin had insert in the view, which is the parameter "annoSc", in an "anno" variable, just to initialize it (it could change its value...)
             var anno = annoSc;
+            //Save this value in TempData, as it will be needed in another method
             TempData["anno"] = anno;
 
+            //For each item in the list of years retrieved from the database...
             foreach (var item2 in listaAnnoScDb)
                 {
+                //if the value of "AnnoScolastico" item is different from the parameter "annoSc"...
                 if (item2.AnnoScolastico != annoSc)
                 {
+                    //the "anno" value remains unchamged;
                     anno = annoSc;
                 }
+                //if the value of "AnnoScolatico" item is the same from the parameter "annoSc"...
                 else if (item2.AnnoScolastico == annoSc)
                 {
+                    //the "anno" value will be set to an empty string...
                     anno = "";
                 }
              }
 
+            //and if "anno" remains unchanged, it indicates that it does not match with any other value in the database.
+            //In this case, all the classes in the "listaClassi" can be saved in the database;
             if (anno != "")
             {
                foreach (var item in listaClassi)
@@ -238,7 +253,6 @@ namespace CAPSTONE_PROJECT.Controllers
                       {
                         ViewBag.Error = ex.Message;
                       }
-
                    }
                    else
                    {
@@ -246,9 +260,11 @@ namespace CAPSTONE_PROJECT.Controllers
                    }
                }
             }
+            //but if "anno" is set as an empty string, it means that classes have already been generated in the database for the year specified by the parameter (annoSc).
+            //Therefore, classes won't be saved in the database.
             else
             {
-                TempData["ClassiGiaGenerate"] = "Sono già state generate delle classi per l'anno scolastico inserito.";
+                TempData["ErrorMessage"] = "Sono già state generate delle classi per l'anno scolastico inserito.";
             }
             return Json("success");
         }

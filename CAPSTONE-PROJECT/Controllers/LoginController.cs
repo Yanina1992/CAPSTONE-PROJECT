@@ -44,7 +44,6 @@ namespace CAPSTONE_PROJECT.Controllers
             }
             return View();
         }
-        
 
         public ActionResult Logout()
         {
