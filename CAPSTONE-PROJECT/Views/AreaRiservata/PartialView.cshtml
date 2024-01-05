@@ -8,13 +8,13 @@
         <th>
             @Html.DisplayNameFor(model => model.CognomeAlunno)
         </th>
-        <th>
+        <th class="d-none d-md-table-cell">
             @Html.DisplayNameFor(model => model.CFAlunno)
         </th>
-        <th>
+        <th class="d-none d-lg-table-cell">
             @Html.DisplayNameFor(model => model.Eta)
         </th>
-        <th>
+        <th class="d-none d-lg-table-cell">
             @Html.DisplayNameFor(model => model.Allergie)
         </th>
         <th style="display: none">
@@ -26,16 +26,16 @@
         <th style="display: none">
             @Html.DisplayNameFor(model => model.Isee)
         </th>
-        <th>
+        <th class="d-none d-lg-table-cell">
             @Html.DisplayNameFor(model => model.Bilinguismo)
         </th>
-        <th>
+        <th class="d-none d-lg-table-cell">
             @Html.DisplayNameFor(model => model.Assicurazione)
         </th>
-        <th>
+        <th class="d-none d-lg-table-cell">
             @Html.DisplayNameFor(model => model.Mensa)
         </th>
-        <th>
+        <th class="d-none d-lg-table-cell">
             @Html.DisplayNameFor(model => model.TrasportoScolastico)
         </th>
         <th>
@@ -52,13 +52,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CognomeAlunno)
             </td>
-            <td>
+            <td class="d-none d-md-table-cell">
                 @Html.DisplayFor(modelItem => item.CFAlunno)
             </td>
-            <td>
+            <td class="d-none d-lg-table-cell">
                 @Html.DisplayFor(modelItem => item.Eta)
             </td>
-            <td>
+            <td class="d-none d-lg-table-cell">
                 @if (item.Allergie == null)
                 {
                     <p>-</p>
@@ -77,7 +77,7 @@
             <td style="display: none">
                 @Html.DisplayFor(modelItem => item.Isee)
             </td>
-            <td>
+            <td class="d-none d-lg-table-cell">
                 @if (item.Bilinguismo == true)
                 {
                     <p>Aderisce</p>
@@ -87,7 +87,7 @@
                     <p>Non aderisce</p>
                 }
             </td>
-            <td>
+            <td class="d-none d-lg-table-cell">
                 @if (item.Assicurazione == true)
                 {
                     <p>Aderisce</p>
@@ -97,7 +97,7 @@
                     <p>Non aderisce</p>
                 }
             </td>
-            <td>
+            <td class="d-none d-lg-table-cell">
                 @if (item.Mensa == true)
                 {
                     <p>Aderisce</p>
@@ -107,7 +107,7 @@
                     <p>Non aderisce</p>
                 }
             </td>
-            <td>
+            <td class="d-none d-lg-table-cell">
                 @if (item.TrasportoScolastico == true)
                 {
                     <p>Aderisce</p>

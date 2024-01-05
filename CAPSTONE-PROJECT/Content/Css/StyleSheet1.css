@@ -107,8 +107,7 @@ a, .nav-link {
         color: #00928E;
         font-weight: 500;
     }
-       /* Istituto*/
-
+/* Istituto*/
 .white-titles {
     text-shadow: 10px 10px 10px black;
 }
@@ -127,8 +126,6 @@ a, .nav-link {
         font-weight: 500;
         background-color: #4950577d;
     }
-
-
 
 #carouselExample {
     box-shadow: 10px 10px 10px grey;
@@ -169,7 +166,4 @@ i{
     margin-right: 1vw;
 }
 
-/*Admin*/
-/*.class-link{
-   font-weight:500;
-}*/
+

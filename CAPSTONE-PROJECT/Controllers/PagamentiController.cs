@@ -15,13 +15,11 @@ namespace CAPSTONE_PROJECT.Controllers
     {
         private Context db = new Context();
 
-        // GET: Pagamenti
         public ActionResult Index()
         {
             return View(db.Pagamenti.ToList());
         }
 
-        // GET: Pagamenti/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,15 +35,11 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(pagamenti);
         }
 
-        // GET: Pagamenti/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pagamenti/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdPagamento,Mensa,TrasportoScolastico,Assicurazione,Bilinguismo,Totale")]Pagamenti pagamenti)
@@ -60,7 +54,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(pagamenti);
         }
 
-        // GET: Pagamenti/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,9 +68,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(pagamenti);
         }
 
-        // POST: Pagamenti/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdPagamento,Mensa,TrasportoScolastico,Assicurazione,Bilinguismo,Totale")] Pagamenti pagamenti)
@@ -91,7 +81,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(pagamenti);
         }
 
-        // GET: Pagamenti/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,7 +95,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(pagamenti);
         }
 
-        // POST: Pagamenti/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

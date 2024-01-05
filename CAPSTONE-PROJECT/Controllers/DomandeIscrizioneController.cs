@@ -14,14 +14,10 @@ namespace CAPSTONE_PROJECT.Controllers
     public class DomandeIscrizioneController : Controller
     {
         private Models.Context db = new Models.Context();
-
-        // GET: DomandeIscrizione
         public ActionResult Index()
         {
             return View(db.DomandeIscrizione.ToList());
         }
-
-        // GET: DomandeIscrizione/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,16 +31,11 @@ namespace CAPSTONE_PROJECT.Controllers
             }
             return View(domandeIscrizione);
         }
-
-        // GET: DomandeIscrizione/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DomandeIscrizione/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta,Mensa,TrasportoScolastico")] DomandeIscrizione domandeIscrizione, string CFAlunno)
@@ -93,7 +84,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(domandeIscrizione);
         }
 
-        // GET: DomandeIscrizione/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -108,9 +98,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(domandeIscrizione);
         }
 
-        // POST: DomandeIscrizione/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdDomanda,NomeAlunno,CognomeAlunno,CFAlunno,Eta,Allergie,Bilinguismo,Assicurazione,CFPapa,CFMamma,Isee,DomandaAccolta,Mensa,TrasportoScolastico")] DomandeIscrizione domandeIscrizione, bool? DomandaAccolta, int IdDomanda)

@@ -14,14 +14,12 @@ namespace CAPSTONE_PROJECT.Controllers
     {
         private Context db = new Context();
 
-        // GET: Alunnis
         public ActionResult Index()
         {
             var alunni = db.Alunni.Include(a => a.Classi).Include(a => a.DomandeIscrizione).Include(a => a.Pagamenti);
             return View(alunni.ToList());
         }
 
-        // GET: Alunnis/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +34,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(alunni);
         }
 
-        // GET: Alunnis/Create
         public ActionResult Create()
         {
             ViewBag.FKClasse = new SelectList(db.Classi, "IdClasse", "Anno");
@@ -45,9 +42,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View();
         }
 
-        // POST: Alunnis/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdAlunno,FKDomandaIscrizione,FKPagamento,FKClasse")] Alunni alunni)
@@ -65,7 +59,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(alunni);
         }
 
-        // GET: Alunnis/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,9 +76,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(alunni);
         }
 
-        // POST: Alunnis/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdAlunno,FKDomandaIscrizione,FKPagamento,FKClasse")] Alunni alunni)
@@ -101,8 +91,6 @@ namespace CAPSTONE_PROJECT.Controllers
             ViewBag.FKPagamento = new SelectList(db.Pagamenti, "IdPagamento", "IdPagamento", alunni.FKPagamento);
             return View(alunni);
         }
-
-        // GET: Alunnis/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,7 +105,6 @@ namespace CAPSTONE_PROJECT.Controllers
             return View(alunni);
         }
 
-        // POST: Alunnis/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

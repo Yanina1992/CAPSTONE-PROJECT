@@ -248,6 +248,8 @@ namespace CAPSTONE_PROJECT.Controllers
                         db.Classi.Add(item);
                         db.SaveChanges();
                         item.ConfermaClasse = true;
+
+                            Session["Message"] = "Classi generate correttamente";
                       }
                       catch (Exception ex)
                       {

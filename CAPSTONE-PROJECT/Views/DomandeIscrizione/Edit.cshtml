@@ -85,7 +85,7 @@
             <div class="form-group d-flex">
                 @Html.LabelFor(model => model.Bilinguismo, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
+                    <div class="checkbox ms-4 ms-md-0">
                         @Html.CheckBox("Bilinguismo")
                         @Html.ValidationMessageFor(model => model.Bilinguismo, "", new { @class = "text-danger" })
                     </div>
@@ -95,7 +95,7 @@
             <div class="form-group d-flex">
                 @Html.LabelFor(model => model.Assicurazione, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
+                    <div class="checkbox ms-4 ms-md-0">
                         @Html.CheckBox("Assicurazione")
                         @Html.ValidationMessageFor(model => model.Assicurazione, "", new { @class = "text-danger" })
                     </div>
@@ -105,7 +105,7 @@
             <div class="form-group d-flex">
                 @Html.LabelFor(model => model.Mensa, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
+                    <div class="checkbox ms-4 ms-md-0">
                         @Html.CheckBox("Mensa")
                         @Html.ValidationMessageFor(model => model.Mensa, "", new { @class = "text-danger" })
                     </div>
@@ -115,7 +115,7 @@
             <div class="form-group d-flex">
                 @Html.LabelFor(model => model.TrasportoScolastico, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
+                    <div class="checkbox ms-4 ms-md-0">
                         @Html.CheckBox("TrasportoScolastico")
                         @Html.ValidationMessageFor(model => model.TrasportoScolastico, "", new { @class = "text-danger" })
                     </div>
@@ -130,7 +130,7 @@
 
                 <div class="col-md-10">
 
-                    <div class="checkbox">
+                    <div class="checkbox ms-4 ms-md-0">
                         @Html.CheckBox("DomandaAccolta")
                         @Html.ValidationMessageFor(model => model.DomandaAccolta, "", new { @class = "text-danger" })
                     </div>

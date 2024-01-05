@@ -11,16 +11,16 @@
         <th>
             @Html.DisplayNameFor(model => model.IdPagamento)
         </th>
-        <th>
+        <th class="d-none d-md-table-cell">
             @Html.DisplayNameFor(model => model.Mensa)
         </th>
-        <th>
+        <th class="d-none d-md-table-cell">
             @Html.DisplayNameFor(model => model.TrasportoScolastico)
         </th>
-        <th>
+        <th class="d-none d-md-table-cell">
             @Html.DisplayNameFor(model => model.Assicurazione)
         </th>
-        <th>
+        <th class="d-none d-md-table-cell">
             @Html.DisplayNameFor(model => model.Bilinguismo)
         </th>
         <th>
@@ -34,19 +34,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.IdPagamento)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Alunni)
-        </td>*@
-        <td>
+        <td class="d-none d-md-table-cell">
             @Html.DisplayFor(modelItem => item.Mensa)
         </td>
-        <td>
+        <td class="d-none d-md-table-cell">
             @Html.DisplayFor(modelItem => item.TrasportoScolastico)
         </td>
-        <td>
+        <td class="d-none d-md-table-cell">
             @Html.DisplayFor(modelItem => item.Assicurazione)
         </td>
-        <td>
+        <td class="d-none d-md-table-cell">
             @Html.DisplayFor(modelItem => item.Bilinguismo)
         </td>
         <td>
@@ -55,7 +52,7 @@
         <td>
             @Html.ActionLink("Modifica", "Edit", new { id = item.IdPagamento }) |
             @Html.ActionLink("Dettagli", "Details", new { id = item.IdPagamento }) |
-            @Html.ActionLink("Elimina", "Delete", new { id = item.IdPagamento })
+            @*@Html.ActionLink("Elimina", "Delete", new { id = item.IdPagamento })*@
         </td>
     </tr>
 }

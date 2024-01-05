@@ -87,9 +87,17 @@
 
     </dl>
 
-    <p>
-        @Html.ActionLink("Procedi con il pagamento", "Create", "PagamentiEffettuati")
-    </p>
+    @if (User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Torna alla lista dei pagamenti", "Index", "Pagamenti")
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink("Procedi con il pagamento", "Create", "PagamentiEffettuati")
+        </p>
+    }
+
 </div>
 
 

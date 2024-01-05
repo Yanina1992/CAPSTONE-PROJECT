@@ -14,10 +14,5 @@ namespace CAPSTONE_PROJECT.Controllers
         {
             return View();
         }
-
-        public ActionResult PrimoSoccorso()
-        {
-            return View();
-        }
     }
 }

@@ -15,10 +15,10 @@
                     <th>
                         @Html.DisplayNameFor(model => model.CognomeAlunno)
                     </th>
-                    <th>
+                    <th class="d-none d-md-table-cell">
                         @Html.DisplayNameFor(model => model.CFAlunno)
                     </th>
-                    <th>
+                    <th class="d-none d-lg-table-cell">
                         @Html.DisplayNameFor(model => model.Eta)
                     </th>
                     <th style="display: none">
@@ -30,16 +30,16 @@
                     <th style="display: none">
                         @Html.DisplayNameFor(model => model.Assicurazione)
                     </th>
-                    <th>
+                    <th class="d-none d-md-table-cell">
                         @Html.DisplayNameFor(model => model.CFPapa)
                     </th>
-                    <th>
+                    <th class="d-none d-md-table-cell">
                         @Html.DisplayNameFor(model => model.CFMamma)
                     </th>
-                    <th>
+                    <th class="d-none d-xg-table-cell">
                         @Html.DisplayNameFor(model => model.Isee)
                     </th>
-                    <th>
+                    <th class="d-none d-lg-table-cell">
                         @Html.DisplayNameFor(model => model.DomandaAccolta)
                     </th>
                     <th style="display: none">
@@ -48,7 +48,7 @@
                     <th style="display: none">
                         @Html.DisplayNameFor(model => model.TrasportoScolastico)
                     </th>
-                    <th></th>
+                    @*<th></th>*@
                 </tr>
 
                 @foreach (var item in Model)
@@ -60,10 +60,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.CognomeAlunno)
                         </td>
-                        <td>
+                        <td class="d-none d-md-table-cell">
                             @Html.DisplayFor(modelItem => item.CFAlunno)
                         </td>
-                        <td>
+                        <td class="d-none d-lg-table-cell">
                             @Html.DisplayFor(modelItem => item.Eta)
                         </td>
                         <td style="display: none">
@@ -75,7 +75,7 @@
                         <td style="display: none">
                             @Html.DisplayFor(modelItem => item.Assicurazione)
                         </td>
-                        <td>
+                        <td class="d-none d-md-table-cell">
                             @if (item.CFPapa != null)
                             {
                                 @Html.DisplayFor(modelItem => item.CFPapa)
@@ -85,17 +85,15 @@
                                 <p class="px-5">-</p>
                             }
                         </td>
-                        <td>
+                        <td class="d-none d-md-table-cell">
                             @Html.DisplayFor(modelItem => item.CFMamma)
                         </td>
-                        <td>
+                        <td class="d-none d-xg-table-cell">
                             @Html.DisplayFor(modelItem => item.Isee)
                         </td>
-                        <td>
+                        <td class="d-none d-lg-table-cell">
                             @if (item.DomandaAccolta == true)
                             {
-
-
                                 <p>Accolta</p>
                             }
                             else

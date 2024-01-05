@@ -3,9 +3,9 @@
     ViewBag.Title = "GestioneClassi";
 }
 
-@*@{
-    var classiGiaGenerate = @TempData["ErrorMessage"];
-}*@
+@{
+    var errorMessage = TempData["ErrorMessage"];
+}
 
 <h2 class="m-4">Gestione classi</h2>ì
 <div class="container">
@@ -14,12 +14,12 @@
         <div class="col col-12">
             <h4 class="m-4">Prime</h4>
             <div class="row" style="height: 2.5em">
-                <div class="col col-12 col-md-6">
+                <div class="col col-12 col-md-6 my-2 my-md-0">
                     <div class="card h-100">
                         @Html.ActionLink("Classi prime tempo pieno", "GestionePrimeTP", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
                     </div>
                 </div>
-                <div class="col col-12 col-md-6">
+                <div class="col col-12 col-md-6 my-2 my-md-0">
                     <div class="card h-100">
                         @Html.ActionLink("Classi prime tempo corto", "GestionePrimeTC", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
                     </div>
@@ -28,14 +28,14 @@
         </div>
 
         <div class="col col-12 mt-4">
-            <h4 class="m-4">Seconde</h4>
+            <h4 class="m-4 mt-5">Seconde</h4>
             <div class="row" style="height: 2.5em">
-                <div class="col col-12 col-md-6">
+                <div class="col col-12 col-md-6 my-2 my-md-0">
                     <div class="card h-100">
                         @Html.ActionLink("Classi seconde tempo pieno", "GestioneSecondeTP", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
                     </div>
                 </div>
-                <div class="col col-12 col-md-6">
+                <div class="col col-12 col-md-6 my-2 my-md-0">
                     <div class="card h-100">
                         @Html.ActionLink("Classi seconde tempo corto", "GestioneSecondeTC", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
                     </div>
@@ -44,14 +44,14 @@
         </div>
 
         <div class="col col-12 my-4">
-            <h4 class="m-4">Terze</h4>
+            <h4 class="m-4 mt-5">Terze</h4>
             <div class="row" style="height: 2.5em">
-                <div class="col col-12 col-md-6">
+                <div class="col col-12 col-md-6 my-2 my-md-0">
                     <div class="card h-100">
                         @Html.ActionLink("Classi terze tempo pieno", "GestioneTerzeTP", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
                     </div>
                 </div>
-                <div class="col col-12 col-md-6">
+                <div class="col col-12 col-md-6 my-2 my-md-0">
                     <div class="card h-100">
                         @Html.ActionLink("Classi terze tempo corto", "GestioneTerzeTC", "AreaRiservata", new { area = "" }, new { @class = "text-center fw-semibold" })
                     </div>
@@ -74,20 +74,12 @@
 
     <div id="response"></div>
 
-    @*@if (classiGiaGenerate != null)
-    {
-        <p>@classiGiaGenerate.ToString()</p>
-    }
-    else
-    {*@
-        <p id="classiGenerate" style="display: none; color: #00928E">Classi generate correttamente</p>
-        <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
-        <button id="saveStudents" style="display:none" class="btn">Salva studenti</button>
-    @*}*@
+    <p id="classiGenerate" style="display: none; color: #00928E">Classi generate correttamente</p>
+    <p id="pSave" style="display:none">Procedi al salvataggio degli studenti</p>
+    <button id="saveStudents" style="display:none" class="btn">Salva studenti</button>
 
     <p id="responseSaveStudents" style="color: #00928E; display:none" class="my-4">Alunni salvati correttamente</p>
     <a href="../Alunnis/Index" id="show-link" style="display: none">Visualizza la lista degli alunni</a>
-
 </div>
 
 @section Scripts {
@@ -148,6 +140,8 @@
                     }
                 })
             })
+
         })
     </script>
 }
+

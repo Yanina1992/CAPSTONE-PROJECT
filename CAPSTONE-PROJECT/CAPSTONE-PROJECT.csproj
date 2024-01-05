@@ -318,7 +318,6 @@
     <Content Include="Views\Famiglie\Index.cshtml" />
     <Content Include="Views\Famiglie\TrovaPagamenti.cshtml" />
     <Content Include="Views\Studenti\Index.cshtml" />
-    <Content Include="Views\Studenti\PrimoSoccorso.cshtml" />
     <Content Include="Views\DomandeIscrizione\_DomandaIscrDetails.cshtml" />
     <Content Include="Views\DomandeIscrizione\ParentsDetails.cshtml" />
     <Content Include="Views\AreaRiservata\Index.cshtml" />
