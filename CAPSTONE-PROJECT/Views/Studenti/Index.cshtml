@@ -6,7 +6,7 @@
 <h2 class="m-4">Area dedicata agli studenti</h2>
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
 
         <div class="col col-12 col-lg-6 d-flex m-4 m-lg-0">
             <div class="card w-100 h-100">
@@ -40,7 +40,7 @@
                     <hr />
                     <p class="card-text">Trova tutte le circolari e gli avvisi relativi alla tua classe. Scopri anche le numerose iniziative proposte dalla scuola!</p>
                     <hr />
-                    @Html.ActionLink("Visualizza circolari", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    @Html.ActionLink("Visualizza circolari", "Index", "Home", null, null, "anchor", new { area = "" }, new { @class = "nav-link" })
                 </div>
             </div>
         </div>

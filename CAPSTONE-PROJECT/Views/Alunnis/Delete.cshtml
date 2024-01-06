@@ -46,7 +46,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Pagamenti.IdPagamento)
+            @if (Model.FKPagamento != null)
+            {
+                @Html.DisplayFor(model => model.Pagamenti.IdPagamento)
+            }
+            else
+            {
+                <p>-</p>
+            }
+
         </dd>
 
     </dl>

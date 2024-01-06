@@ -9,7 +9,6 @@ namespace CAPSTONE_PROJECT.Controllers
     public class StudentiController : Controller
     {
         private Models.Context db = new Models.Context();
-        // GET: Studenti
         public ActionResult Index()
         {
             return View();
