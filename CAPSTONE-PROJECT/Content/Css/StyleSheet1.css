@@ -130,9 +130,8 @@ a, .nav-link {
 
 @media (max-width: 768px) {
     #school-image {
-        background-image: url('../../Content/Images/scuola/sfondo-colorato.jpeg');
+        background-image: url('../../Content/Images/scuola/sfondo-colorato2.jpeg');
         background-size: cover;
-/*        background-attachment: fixed;*/
         background-position: center;
     }
 }
@@ -183,7 +182,6 @@ i{
         #home-image {
             background-image: url('../../Content/Images/scuola/sfondo-colorato2.jpeg');
             background-size: cover;
-/*            background-attachment: fixed;*/
             background-position: center;
         }
     }
