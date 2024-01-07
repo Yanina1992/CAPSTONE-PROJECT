@@ -230,7 +230,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Css\StyleSheet2.css" />
     <Content Include="Content\Images\home-image2.png" />
     <Content Include="Content\Images\istockphoto-1ad-612x612.jpg" />
     <Content Include="Content\Images\istockphoto-admin-612x612.jpg" />
@@ -258,7 +257,11 @@
     <Content Include="Content\Images\scuola\pexels-photo-1101730.jpeg" />
     <Content Include="Content\Images\scuola\pexels-photo-5571736.jpeg" />
     <Content Include="Content\Images\phone-old-year-built-1955-bakelite-163007.jpeg" />
+    <Content Include="Content\Images\scuola\sfondo-colorato.jpeg" />
+    <Content Include="Content\Images\scuola\sfondo-colorato2.jpeg" />
     <Content Include="Content\Images\scuola\tenbosch3.png" />
+    <Content Include="Content\Images\scuola\vet-home.jpg" />
+    <Content Include="Content\Images\scuola\vet-s.jpg" />
     <Content Include="Content\Images\sfondo.png" />
     <Content Include="Content\Css\StyleSheet1.css" />
     <Content Include="favicon.ico" />
@@ -288,7 +291,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Content\Css\StyleSheet2.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

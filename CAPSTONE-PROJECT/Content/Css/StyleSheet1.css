@@ -128,11 +128,11 @@ a, .nav-link {
         background-color: #4950577d;
     }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     #school-image {
-        background-image: url('../../Content/Images/scuola/istituto-mobile.jpeg');
+        background-image: url('../../Content/Images/scuola/sfondo-colorato.jpeg');
         background-size: cover;
-        background-attachment: fixed;
+/*        background-attachment: fixed;*/
         background-position: center;
     }
 }
@@ -179,11 +179,11 @@ i{
 #home-image{
     background-image: url('../../Content/Images/scuola/Black Doodle Group Project Presentation.jpg');
 }
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
         #home-image {
-            background-image: url('../../Content/Images/home-image2.png');
+            background-image: url('../../Content/Images/scuola/sfondo-colorato2.jpeg');
             background-size: cover;
-            background-attachment: fixed;
+/*            background-attachment: fixed;*/
             background-position: center;
         }
     }
