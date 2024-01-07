@@ -12,14 +12,17 @@
     var id = TempData["id"];
 }
 
-@{ 
+@{
     var alunnoNonTrovato = TempData["alunnoNonTrovato"];
+}
+@{
+    var cfNotFound = TempData["cfNotFound"];
 }
 
 <h2 class="m-4">Cerca pagamento</h2>
 <div class="my-form px-0 px-md-4">
     @*Input in which parents insert their CF*@
-    <input class="form-control m-4" id="cf" type="text" placeholder="Inserisci il tuo codice fiscale">
+    <input class="form-control m-4" id="cf" type="text" placeholder="Inserisci il tuo codice fiscale" required>
     <button class="btn m-4" id="cfButton">Trova pagamenti</button>
     @if (totale != null)
     {
@@ -29,10 +32,15 @@
             @Html.ActionLink("Visualizza dettagli pagamento", "Details", "Pagamenti", new { id = @id }, new { @class = "nav-link" })
         </div>
     }
-    @if(alunnoNonTrovato != null)
+    @if (alunnoNonTrovato != null)
     {
         <p class="ps-2">@alunnoNonTrovato</p>
     }
+    @if (cfNotFound != null)
+    {
+        <p class="ps-2" id="cf-not-found">@cfNotFound</p>
+    }
+    <p class="text-danger ps-2" style="display: none" id="d-none">Inserire un Codice Fiscale.</p>
 </div>
 
 @*Sending the parent CF and calling the function "Pagamento", in order to generate the payment for the student who has a parent with that CF value*@
@@ -52,6 +60,9 @@
                             location.reload();
                         }
                     })
+                } else {
+                    $('#cf-not-found').hide();
+                    $("#d-none").show();
                 }
             })
         })

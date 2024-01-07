@@ -230,6 +230,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Css\StyleSheet2.css" />
+    <Content Include="Content\Images\home-image2.png" />
     <Content Include="Content\Images\istockphoto-1ad-612x612.jpg" />
     <Content Include="Content\Images\istockphoto-admin-612x612.jpg" />
     <Content Include="Content\Images\istockphoto-avvisi-612x612.jpg" />
@@ -249,6 +251,8 @@
     <Content Include="Content\Images\scuola\bibliothèque-2041540.jpeg" />
     <Content Include="Content\Images\scuola\Black Doodle Group Project Presentation.jpg" />
     <Content Include="Content\Images\scuola\ecole-etangs2.jpg" />
+    <Content Include="Content\Images\scuola\home-mobile.jpeg" />
+    <Content Include="Content\Images\scuola\istituto-mobile.jpeg" />
     <Content Include="Content\Images\scuola\istockphoto-925672792-612x612.jpg" />
     <Content Include="Content\Images\scuola\parascolaire-ixelles-kiddo-sports-petit.jpg" />
     <Content Include="Content\Images\scuola\pexels-photo-1101730.jpeg" />

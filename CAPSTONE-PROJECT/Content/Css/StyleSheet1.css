@@ -112,6 +112,7 @@ a, .nav-link {
     text-shadow: 10px 10px 10px black;
 }
 
+
 #school-image {
     background-image: url('../../Content/Images/scuola/ecole-etangs2.jpg');
     height: 70vh;
@@ -126,6 +127,15 @@ a, .nav-link {
         font-weight: 500;
         background-color: #4950577d;
     }
+
+@media (max-width: 576px) {
+    #school-image {
+        background-image: url('../../Content/Images/scuola/istituto-mobile.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+}
 
 #carouselExample {
     box-shadow: 10px 10px 10px grey;
@@ -165,5 +175,17 @@ a, .nav-link {
 i{
     margin-right: 1vw;
 }
+
+#home-image{
+    background-image: url('../../Content/Images/scuola/Black Doodle Group Project Presentation.jpg');
+}
+    @media (max-width: 576px) {
+        #home-image {
+            background-image: url('../../Content/Images/home-image2.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+    }
 
 
