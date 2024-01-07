@@ -10,8 +10,9 @@ Lo scopo è quello di riportare la rivoluzione digitale a migliorare la vita del
 comunicazione tra scuola e famiglia, semplificando pratiche che spesso si rivelano macchinose.
 La mia attenzione è dunque volta alla funzionalità per chi amministra il sito, e all'intuitività per gli utenti esterni.
 
-[Guarda il video di presentazione del progetto](https://youtu.be/i0iiDMcOYsQ?si=1sqz-1SSdbKxHdEq)
-[Vai al sito e prova il progetto](agueroyanina-001-site1.btempurl.com)
+[Guarda il video di presentazione del progetto](https://youtu.be/i0iiDMcOYsQ?si=1sqz-1SSdbKxHdEq)<br/>
+Oppure<br/>
+[Vai al sito e prova il progetto!](agueroyanina-001-site1.btempurl.com)
 
 ### Funzionalità
 L'applicazione permette ai genitori di inviare le domande di iscrizione all'istituto che, se accolte, inseriranno l'alunno nel sistema. I pagamenti dovuti alla scuola saranno calcolati in base ai servizi
