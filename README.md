@@ -10,12 +10,13 @@ Lo scopo è quello di riportare la rivoluzione digitale a migliorare la vita del
 comunicazione tra scuola e famiglia, semplificando pratiche che spesso si rivelano macchinose.
 La mia attenzione è dunque volta alla funzionalità per chi amministra il sito, e all'intuitività per gli utenti esterni.
 
-[Guarda il video](https://www.linkedin.com/feed/update/urn:li:ugcPost:7133499001793855489/)
+[Guarda il video di presentazione del progetto](https://youtu.be/i0iiDMcOYsQ?si=1sqz-1SSdbKxHdEq)
+[Vai al sito e prova il progetto](agueroyanina-001-site1.btempurl.com)
 
 ### Funzionalità
 L'applicazione permette ai genitori di inviare le domande di iscrizione all'istituto che, se accolte, inseriranno l'alunno nel sistema. I pagamenti dovuti alla scuola saranno calcolati in base ai servizi
 richiesti (refezione scolastica, trasporto, ecc.).
-Per quanto riguarda la parte degli amministratori, protetta da username e password, sarà possibile generare automaticamente le classi in base alle richieste ricevute, ma si potrà anche intervenire per modificare
+Per quanto riguarda la parte degli amministratori, protetta da username (Amministratore) e password (Amministratore), sarà possibile generare automaticamente le classi in base alle richieste ricevute, ma si potrà anche intervenire per modificare
 i singoli casi.
 
 ## Linguaggi, framework e librerie utilizzate
