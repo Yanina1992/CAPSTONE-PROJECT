@@ -2,7 +2,7 @@
 
 ## Full Stack Capstone Project
 
-![image](https://github.com/Yanina1992/CAPSTONE-PROJECT/assets/132350660/590ee14b-4aea-4098-a0af-cc42c5c20780)
+![image](https://github.com/Yanina1992/CAPSTONE-PROJECT/blob/master/Screenshot%202024-01-09%20alle%2009.03.36.png)
 
 ### Keep it simple!
 L'idea di quest'applicazione nasce dal desiderio di aggirare un problema che spesso passa inosservato, e cioè il fatto che la digitalizzazione verso cui la società è diretta lascia fuori una grande fetta di persone.
